@@ -30,10 +30,28 @@ class ImageRequestsRecord extends FirestoreRecord {
   String get responseBody => _responseBody ?? '';
   bool hasResponseBody() => _responseBody != null;
 
+  // "photo_url" field.
+  String? _photoUrl;
+  String get photoUrl => _photoUrl ?? '';
+  bool hasPhotoUrl() => _photoUrl != null;
+
+  // "created_time" field.
+  DateTime? _createdTime;
+  DateTime? get createdTime => _createdTime;
+  bool hasCreatedTime() => _createdTime != null;
+
+  // "responseURL" field.
+  String? _responseURL;
+  String get responseURL => _responseURL ?? '';
+  bool hasResponseURL() => _responseURL != null;
+
   void _initializeFields() {
     _requestJSON = snapshotData['requestJSON'] as String?;
     _userid = snapshotData['userid'] as String?;
     _responseBody = snapshotData['responseBody'] as String?;
+    _photoUrl = snapshotData['photo_url'] as String?;
+    _createdTime = snapshotData['created_time'] as DateTime?;
+    _responseURL = snapshotData['responseURL'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -74,12 +92,18 @@ Map<String, dynamic> createImageRequestsRecordData({
   String? requestJSON,
   String? userid,
   String? responseBody,
+  String? photoUrl,
+  DateTime? createdTime,
+  String? responseURL,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'requestJSON': requestJSON,
       'userid': userid,
       'responseBody': responseBody,
+      'photo_url': photoUrl,
+      'created_time': createdTime,
+      'responseURL': responseURL,
     }.withoutNulls,
   );
 
@@ -94,12 +118,21 @@ class ImageRequestsRecordDocumentEquality
   bool equals(ImageRequestsRecord? e1, ImageRequestsRecord? e2) {
     return e1?.requestJSON == e2?.requestJSON &&
         e1?.userid == e2?.userid &&
-        e1?.responseBody == e2?.responseBody;
+        e1?.responseBody == e2?.responseBody &&
+        e1?.photoUrl == e2?.photoUrl &&
+        e1?.createdTime == e2?.createdTime &&
+        e1?.responseURL == e2?.responseURL;
   }
 
   @override
-  int hash(ImageRequestsRecord? e) =>
-      const ListEquality().hash([e?.requestJSON, e?.userid, e?.responseBody]);
+  int hash(ImageRequestsRecord? e) => const ListEquality().hash([
+        e?.requestJSON,
+        e?.userid,
+        e?.responseBody,
+        e?.photoUrl,
+        e?.createdTime,
+        e?.responseURL
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is ImageRequestsRecord;

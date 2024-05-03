@@ -389,7 +389,7 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                         if ((_model.imageResult?.succeeded ?? true)) {
                           await _model.outputdocID!.reference
                               .update(createImageRequestsRecordData(
-                            responseBody: getJsonField(
+                            responseURL: getJsonField(
                               (_model.imageResult?.jsonBody ?? ''),
                               r'''$.result''',
                             ).toString(),

@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_swipeable_stack.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -56,47 +57,11 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                       letterSpacing: 0.0,
                     ),
               ),
-              StreamBuilder<List<ImageRequestsRecord>>(
-                stream: queryImageRequestsRecord(
-                  queryBuilder: (imageRequestsRecord) =>
-                      imageRequestsRecord.where(
-                    'userid',
-                    isEqualTo: currentUserUid,
-                  ),
-                  singleRecord: true,
-                ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            FlutterFlowTheme.of(context).primary,
-                          ),
-                        ),
-                      ),
-                    );
-                  }
-                  List<ImageRequestsRecord> listViewImageRequestsRecordList =
-                      snapshot.data!;
-                  // Return an empty Container when the item does not exist.
-                  if (snapshot.data!.isEmpty) {
-                    return Container();
-                  }
-                  final listViewImageRequestsRecord =
-                      listViewImageRequestsRecordList.isNotEmpty
-                          ? listViewImageRequestsRecordList.first
-                          : null;
-                  return ListView(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    children: const [],
-                  );
-                },
+              ListView(
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                children: const [],
               ),
               StreamBuilder<List<ImageRequestsRecord>>(
                 stream: queryImageRequestsRecord(
@@ -124,14 +89,14 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                         final carouselImageRequestsRecord =
                             carouselImageRequestsRecordList[carouselIndex];
                         return Hero(
-                          tag: 'herotag',
+                          tag: carouselImageRequestsRecord.responseURL,
                           transitionOnUserGestures: true,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: CachedNetworkImage(
                               fadeInDuration: const Duration(milliseconds: 500),
                               fadeOutDuration: const Duration(milliseconds: 500),
-                              imageUrl: 'imageRequests.responseBody',
+                              imageUrl: carouselImageRequestsRecord.responseURL,
                               width: 300.0,
                               height: 200.0,
                               fit: BoxFit.cover,
@@ -157,6 +122,64 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                     ),
                   );
                 },
+              ),
+              Expanded(
+                child: StreamBuilder<List<ImageRequestsRecord>>(
+                  stream: queryImageRequestsRecord(
+                    queryBuilder: (imageRequestsRecord) =>
+                        imageRequestsRecord.where(
+                      'userid',
+                      isEqualTo: currentUserUid,
+                    ),
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              FlutterFlowTheme.of(context).primary,
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                    List<ImageRequestsRecord>
+                        swipeableStackImageRequestsRecordList = snapshot.data!;
+                    return FlutterFlowSwipeableStack(
+                      onSwipeFn: (index) {},
+                      onLeftSwipe: (index) {},
+                      onRightSwipe: (index) {},
+                      onUpSwipe: (index) {},
+                      onDownSwipe: (index) {},
+                      itemBuilder: (context, swipeableStackIndex) {
+                        final swipeableStackImageRequestsRecord =
+                            swipeableStackImageRequestsRecordList[
+                                swipeableStackIndex];
+                        return ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: CachedNetworkImage(
+                            fadeInDuration: const Duration(milliseconds: 500),
+                            fadeOutDuration: const Duration(milliseconds: 500),
+                            imageUrl:
+                                swipeableStackImageRequestsRecord.responseURL,
+                            width: double.infinity,
+                            height: double.infinity,
+                            fit: BoxFit.cover,
+                          ),
+                        );
+                      },
+                      itemCount: swipeableStackImageRequestsRecordList.length,
+                      controller: _model.swipeableStackController,
+                      loop: false,
+                      cardDisplayCount: 3,
+                      scale: 0.9,
+                    );
+                  },
+                ),
               ),
             ],
           ),
