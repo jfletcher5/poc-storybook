@@ -22,28 +22,28 @@ class FFAppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  String _model = 'dall-e-2';
+  String _model = '\"dall-e-2\"';
   String get model => _model;
   set model(String value) {
     _model = value;
   }
 
-  String _prompt = 'bitcoins growing in the forest next to a waterfall';
+  String _prompt = '\"bitcoins growing in the forest next to a waterfall\"';
   String get prompt => _prompt;
   set prompt(String value) {
     _prompt = value;
   }
 
-  String _quality = 'standard';
-  String get quality => _quality;
-  set quality(String value) {
-    _quality = value;
-  }
-
-  String _size = '1024x1024';
+  String _size = '\"1024x1024\"';
   String get size => _size;
   set size(String value) {
     _size = value;
+  }
+
+  String _quality = '\"standard\"';
+  String get quality => _quality;
+  set quality(String value) {
+    _quality = value;
   }
 
   dynamic _requestBody = jsonDecode(

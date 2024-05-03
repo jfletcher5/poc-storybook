@@ -9,18 +9,21 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start FastAPI Group Code
 
 class FastAPIGroup {
-  static String baseUrl = '';
-  static Map<String, String> headers = {};
+  static String baseUrl = 'https://poised-legend-421313.ue.r.appspot.com';
+  static Map<String, String> headers = {
+    'Content-Type': 'application/json',
+    'accept': 'application/json',
+  };
   static GenerateGenerateImagePostCall generateGenerateImagePostCall =
       GenerateGenerateImagePostCall();
 }
 
 class GenerateGenerateImagePostCall {
   Future<ApiCallResponse> call({
-    String? prompt = '\"picture of bitcoins growing in the forest\"',
-    String? model = '\"dall-e2\"',
-    String? size = '\"1024x1024\"',
-    String? quality = '\"standard\"',
+    String? prompt = 'picture of bitcoins growing in the forest',
+    String? model = 'dall-e-2',
+    String? size = '1024x1024',
+    String? quality = 'standard',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -33,7 +36,10 @@ class GenerateGenerateImagePostCall {
       callName: 'generate_generate_image__post',
       apiUrl: '${FastAPIGroup.baseUrl}/generate_image/',
       callType: ApiCallType.POST,
-      headers: {},
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
       params: {},
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
