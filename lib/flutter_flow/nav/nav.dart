@@ -99,7 +99,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/createImage',
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'createImage')
-              : const CreateImageWidget(),
+              : CreateImageWidget(
+                  model: params.getParam(
+                    'model',
+                    ParamType.String,
+                  ),
+                  prompt: params.getParam(
+                    'prompt',
+                    ParamType.String,
+                  ),
+                  quality: params.getParam(
+                    'quality',
+                    ParamType.String,
+                  ),
+                  size: params.getParam(
+                    'size',
+                    ParamType.String,
+                  ),
+                ),
         ),
         FFRoute(
           name: 'imageResult',

@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'create_image_widget.dart' show CreateImageWidget;
@@ -11,12 +12,14 @@ class CreateImageModel extends FlutterFlowModel<CreateImageWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // State field(s) for RadioButton widget.
-  FormFieldController<String>? radioButtonValueController1;
-  // State field(s) for RadioButton widget.
-  FormFieldController<String>? radioButtonValueController2;
-  // State field(s) for RadioButton widget.
-  FormFieldController<String>? radioButtonValueController3;
+  // State field(s) for RadioButtonModel widget.
+  FormFieldController<String>? radioButtonModelValueController;
+  // State field(s) for RadioButtonQuality widget.
+  FormFieldController<String>? radioButtonQualityValueController;
+  // State field(s) for RadioButtonResolution widget.
+  FormFieldController<String>? radioButtonResolutionValueController;
+  // Stores action output result for [Backend Call - API (generate_generate_image__post)] action in Button widget.
+  ApiCallResponse? imageResult;
 
   @override
   void initState(BuildContext context) {}
@@ -29,7 +32,9 @@ class CreateImageModel extends FlutterFlowModel<CreateImageWidget> {
   }
 
   /// Additional helper methods.
-  String? get radioButtonValue1 => radioButtonValueController1?.value;
-  String? get radioButtonValue2 => radioButtonValueController2?.value;
-  String? get radioButtonValue3 => radioButtonValueController3?.value;
+  String? get radioButtonModelValue => radioButtonModelValueController?.value;
+  String? get radioButtonQualityValue =>
+      radioButtonQualityValueController?.value;
+  String? get radioButtonResolutionValue =>
+      radioButtonResolutionValueController?.value;
 }

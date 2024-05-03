@@ -1,14 +1,31 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'create_image_model.dart';
 export 'create_image_model.dart';
 
 class CreateImageWidget extends StatefulWidget {
-  const CreateImageWidget({super.key});
+  const CreateImageWidget({
+    super.key,
+    String? model,
+    String? prompt,
+    String? quality,
+    String? size,
+  })  : model = model ?? 'dall-e-2',
+        prompt = prompt ?? 'nothing entered',
+        quality = quality ?? 'standard',
+        size = size ?? '1024x1024';
+
+  final String model;
+  final String prompt;
+  final String quality;
+  final String size;
 
   @override
   State<CreateImageWidget> createState() => _CreateImageWidgetState();
@@ -39,6 +56,8 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -75,6 +94,15 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                     child: TextFormField(
                       controller: _model.textController,
                       focusNode: _model.textFieldFocusNode,
+                      onChanged: (_) => EasyDebounce.debounce(
+                        '_model.textController',
+                        const Duration(milliseconds: 2000),
+                        () async {
+                          setState(() {
+                            FFAppState().prompt = _model.textController.text;
+                          });
+                        },
+                      ),
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
@@ -160,9 +188,16 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                             flex: 2,
                             child: FlutterFlowRadioButton(
                               options: ['dall-e-2', 'dall-e-3'].toList(),
-                              onChanged: (val) => setState(() {}),
-                              controller: _model.radioButtonValueController1 ??=
-                                  FormFieldController<String>(null),
+                              onChanged: (val) async {
+                                setState(() {});
+                                setState(() {
+                                  FFAppState().model =
+                                      _model.radioButtonModelValue!;
+                                });
+                              },
+                              controller:
+                                  _model.radioButtonModelValueController ??=
+                                      FormFieldController<String>(null),
                               optionHeight: 32.0,
                               textStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
@@ -217,9 +252,16 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                             flex: 2,
                             child: FlutterFlowRadioButton(
                               options: ['Standard', 'HD'].toList(),
-                              onChanged: (val) => setState(() {}),
-                              controller: _model.radioButtonValueController2 ??=
-                                  FormFieldController<String>(null),
+                              onChanged: (val) async {
+                                setState(() {});
+                                setState(() {
+                                  FFAppState().quality =
+                                      _model.radioButtonQualityValue!;
+                                });
+                              },
+                              controller:
+                                  _model.radioButtonQualityValueController ??=
+                                      FormFieldController<String>(null),
                               optionHeight: 32.0,
                               textStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
@@ -271,9 +313,16 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                           Expanded(
                             flex: 2,
                             child: FlutterFlowRadioButton(
-                              options: ['1024x1792', '1024x1024'].toList(),
-                              onChanged: (val) => setState(() {}),
-                              controller: _model.radioButtonValueController3 ??=
+                              options: ['1024x1024', '1024x1792'].toList(),
+                              onChanged: (val) async {
+                                setState(() {});
+                                setState(() {
+                                  FFAppState().size =
+                                      _model.radioButtonResolutionValue!;
+                                });
+                              },
+                              controller: _model
+                                      .radioButtonResolutionValueController ??=
                                   FormFieldController<String>(null),
                               optionHeight: 32.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -305,28 +354,53 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                   ],
                 ),
               ),
-              FFButtonWidget(
-                onPressed: () async {
-                  context.pushNamed('Homepage');
-                },
-                text: 'Generate Image',
-                options: FFButtonOptions(
-                  height: 40.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                  iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: FlutterFlowTheme.of(context).primary,
-                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily: 'Plus Jakarta Sans',
-                        color: Colors.white,
-                        letterSpacing: 0.0,
+              Expanded(
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    FFButtonWidget(
+                      onPressed: () async {
+                        _model.imageResult = await FastAPIGroup
+                            .generateGenerateImagePostCall
+                            .call(
+                          prompt: FFAppState().prompt,
+                          size: _model.radioButtonResolutionValue,
+                          model: _model.radioButtonModelValue,
+                          quality: _model.radioButtonQualityValue,
+                        );
+                        if ((_model.imageResult?.succeeded ?? true)) {
+                          context.pushNamed('Homepage');
+                        } else {
+                          context.pushNamed('Homepage');
+                        }
+
+                        setState(() {});
+                      },
+                      text: 'Generate Image',
+                      options: FFButtonOptions(
+                        height: 40.0,
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Plus Jakarta Sans',
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                ),
+                        elevation: 3.0,
+                        borderSide: const BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
-                  elevation: 3.0,
-                  borderSide: const BorderSide(
-                    color: Colors.transparent,
-                    width: 1.0,
-                  ),
-                  borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ],
                 ),
               ),
             ],
