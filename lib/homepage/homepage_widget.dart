@@ -1,8 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_swipeable_stack.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -50,13 +52,6 @@ class _HomepageWidgetState extends State<HomepageWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Text(
-                'Images',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Plus Jakarta Sans',
-                      letterSpacing: 0.0,
-                    ),
-              ),
               ListView(
                 padding: EdgeInsets.zero,
                 shrinkWrap: true,
@@ -159,16 +154,48 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                         final swipeableStackImageRequestsRecord =
                             swipeableStackImageRequestsRecordList[
                                 swipeableStackIndex];
-                        return ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: CachedNetworkImage(
-                            fadeInDuration: const Duration(milliseconds: 500),
-                            fadeOutDuration: const Duration(milliseconds: 500),
-                            imageUrl:
-                                swipeableStackImageRequestsRecord.responseURL,
-                            width: double.infinity,
-                            height: double.infinity,
-                            fit: BoxFit.cover,
+                        return InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await Navigator.push(
+                              context,
+                              PageTransition(
+                                type: PageTransitionType.fade,
+                                child: FlutterFlowExpandedImageView(
+                                  image: CachedNetworkImage(
+                                    fadeInDuration: const Duration(milliseconds: 500),
+                                    fadeOutDuration:
+                                        const Duration(milliseconds: 500),
+                                    imageUrl: swipeableStackImageRequestsRecord
+                                        .responseURL,
+                                    fit: BoxFit.contain,
+                                  ),
+                                  allowRotation: false,
+                                  tag: swipeableStackImageRequestsRecord
+                                      .responseURL,
+                                  useHeroAnimation: true,
+                                ),
+                              ),
+                            );
+                          },
+                          child: Hero(
+                            tag: swipeableStackImageRequestsRecord.responseURL,
+                            transitionOnUserGestures: true,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: CachedNetworkImage(
+                                fadeInDuration: const Duration(milliseconds: 500),
+                                fadeOutDuration: const Duration(milliseconds: 500),
+                                imageUrl: swipeableStackImageRequestsRecord
+                                    .responseURL,
+                                width: double.infinity,
+                                height: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                         );
                       },
@@ -177,6 +204,71 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                       loop: false,
                       cardDisplayCount: 3,
                       scale: 0.9,
+                    );
+                  },
+                ),
+              ),
+              Expanded(
+                child: StreamBuilder<List<ImageRequestsRecord>>(
+                  stream: queryImageRequestsRecord(
+                    queryBuilder: (imageRequestsRecord) =>
+                        imageRequestsRecord.where(
+                      'userid',
+                      isEqualTo: currentUserUid,
+                    ),
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              FlutterFlowTheme.of(context).primary,
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                    List<ImageRequestsRecord> gridViewImageRequestsRecordList =
+                        snapshot.data!;
+                    return GridView.builder(
+                      padding: EdgeInsets.zero,
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 10.0,
+                        mainAxisSpacing: 10.0,
+                        childAspectRatio: 1.0,
+                      ),
+                      scrollDirection: Axis.vertical,
+                      itemCount: gridViewImageRequestsRecordList.length,
+                      itemBuilder: (context, gridViewIndex) {
+                        final gridViewImageRequestsRecord =
+                            gridViewImageRequestsRecordList[gridViewIndex];
+                        return InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await actions.downloadFile(
+                              gridViewImageRequestsRecord.responseBody,
+                              gridViewImageRequestsRecord.requestJSON,
+                            );
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.network(
+                              gridViewImageRequestsRecord.responseURL,
+                              width: 300.0,
+                              height: 200.0,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        );
+                      },
                     );
                   },
                 ),
