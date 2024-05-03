@@ -1,4 +1,6 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -251,7 +253,7 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                           Expanded(
                             flex: 2,
                             child: FlutterFlowRadioButton(
-                              options: ['Standard', 'HD'].toList(),
+                              options: ['standard', 'hd'].toList(),
                               onChanged: (val) async {
                                 setState(() {});
                                 setState(() {
@@ -362,6 +364,20 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
+                        var imageRequestsRecordReference =
+                            ImageRequestsRecord.collection.doc();
+                        await imageRequestsRecordReference
+                            .set(createImageRequestsRecordData(
+                          requestJSON: widget.model,
+                          userid: currentUserUid,
+                        ));
+                        _model.outputdocID =
+                            ImageRequestsRecord.getDocumentFromData(
+                                createImageRequestsRecordData(
+                                  requestJSON: widget.model,
+                                  userid: currentUserUid,
+                                ),
+                                imageRequestsRecordReference);
                         _model.imageResult = await FastAPIGroup
                             .generateGenerateImagePostCall
                             .call(
@@ -371,6 +387,14 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                           quality: _model.radioButtonQualityValue,
                         );
                         if ((_model.imageResult?.succeeded ?? true)) {
+                          await _model.outputdocID!.reference
+                              .update(createImageRequestsRecordData(
+                            responseBody: getJsonField(
+                              (_model.imageResult?.jsonBody ?? ''),
+                              r'''$.result''',
+                            ).toString(),
+                          ));
+
                           context.pushNamed('Homepage');
                         } else {
                           context.pushNamed('Homepage');

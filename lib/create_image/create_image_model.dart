@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'create_image_widget.dart' show CreateImageWidget;
@@ -18,6 +19,8 @@ class CreateImageModel extends FlutterFlowModel<CreateImageWidget> {
   FormFieldController<String>? radioButtonQualityValueController;
   // State field(s) for RadioButtonResolution widget.
   FormFieldController<String>? radioButtonResolutionValueController;
+  // Stores action output result for [Backend Call - Create Document] action in Button widget.
+  ImageRequestsRecord? outputdocID;
   // Stores action output result for [Backend Call - API (generate_generate_image__post)] action in Button widget.
   ApiCallResponse? imageResult;
 
