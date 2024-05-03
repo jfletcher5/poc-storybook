@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "222835500576",
+    "project_id": "poc-storybook-s3b929",
+    "storage_bucket": "poc-storybook-s3b929.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222835500576:android:b6e98a97dcc26d95177e45",
+        "android_client_info": {
+          "package_name": "com.llastmile.pocstorybook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "222835500576-7blsbdd1g0c7hghtcgk50g9o5kt7v7l8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.llastmile.pocstorybook",
+            "certificate_hash": "49436b6e1995a117e4d33dbd5e8ac74ca1da8a02"
+          }
+        },
+        {
+          "client_id": "222835500576-7cnj3oa2c06luo3b7vmt2toae4oeotns.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.llastmile.pocstorybook",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "222835500576-75eupa3qdii1qm908hbc40fpn7l7fqek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAhbn5qlWwHPp_m-rnSFhsuulsEM-QHQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "222835500576-75eupa3qdii1qm908hbc40fpn7l7fqek.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "222835500576-ffg3o927eblp6kus5u7nrqog6nk1c3ud.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.llastmile.pocstorybook"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
