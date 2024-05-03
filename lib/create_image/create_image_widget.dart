@@ -368,14 +368,16 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                             ImageRequestsRecord.collection.doc();
                         await imageRequestsRecordReference
                             .set(createImageRequestsRecordData(
-                          requestJSON: widget.model,
                           userid: currentUserUid,
+                          requestPrompt: FFAppState().prompt,
+                          requestJSON: '',
                         ));
                         _model.outputdocID =
                             ImageRequestsRecord.getDocumentFromData(
                                 createImageRequestsRecordData(
-                                  requestJSON: widget.model,
                                   userid: currentUserUid,
+                                  requestPrompt: FFAppState().prompt,
+                                  requestJSON: '',
                                 ),
                                 imageRequestsRecordReference);
                         _model.imageResult = await FastAPIGroup

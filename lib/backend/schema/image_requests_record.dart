@@ -45,6 +45,11 @@ class ImageRequestsRecord extends FirestoreRecord {
   String get responseURL => _responseURL ?? '';
   bool hasResponseURL() => _responseURL != null;
 
+  // "requestPrompt" field.
+  String? _requestPrompt;
+  String get requestPrompt => _requestPrompt ?? '';
+  bool hasRequestPrompt() => _requestPrompt != null;
+
   void _initializeFields() {
     _requestJSON = snapshotData['requestJSON'] as String?;
     _userid = snapshotData['userid'] as String?;
@@ -52,6 +57,7 @@ class ImageRequestsRecord extends FirestoreRecord {
     _photoUrl = snapshotData['photo_url'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _responseURL = snapshotData['responseURL'] as String?;
+    _requestPrompt = snapshotData['requestPrompt'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -95,6 +101,7 @@ Map<String, dynamic> createImageRequestsRecordData({
   String? photoUrl,
   DateTime? createdTime,
   String? responseURL,
+  String? requestPrompt,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -104,6 +111,7 @@ Map<String, dynamic> createImageRequestsRecordData({
       'photo_url': photoUrl,
       'created_time': createdTime,
       'responseURL': responseURL,
+      'requestPrompt': requestPrompt,
     }.withoutNulls,
   );
 
@@ -121,7 +129,8 @@ class ImageRequestsRecordDocumentEquality
         e1?.responseBody == e2?.responseBody &&
         e1?.photoUrl == e2?.photoUrl &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.responseURL == e2?.responseURL;
+        e1?.responseURL == e2?.responseURL &&
+        e1?.requestPrompt == e2?.requestPrompt;
   }
 
   @override
@@ -131,7 +140,8 @@ class ImageRequestsRecordDocumentEquality
         e?.responseBody,
         e?.photoUrl,
         e?.createdTime,
-        e?.responseURL
+        e?.responseURL,
+        e?.requestPrompt
       ]);
 
   @override

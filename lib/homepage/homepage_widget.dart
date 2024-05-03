@@ -1,7 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_expanded_image_view.dart';
-import '/flutter_flow/flutter_flow_swipeable_stack.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
@@ -58,66 +56,6 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                 scrollDirection: Axis.vertical,
                 children: const [],
               ),
-              StreamBuilder<List<ImageRequestsRecord>>(
-                stream: queryImageRequestsRecord(
-                  queryBuilder: (imageRequestsRecord) =>
-                      imageRequestsRecord.where(
-                    'userid',
-                    isEqualTo: currentUserUid,
-                  ),
-                ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Image.network(
-                      '',
-                    );
-                  }
-                  List<ImageRequestsRecord> carouselImageRequestsRecordList =
-                      snapshot.data!;
-                  return SizedBox(
-                    width: double.infinity,
-                    height: 180.0,
-                    child: CarouselSlider.builder(
-                      itemCount: carouselImageRequestsRecordList.length,
-                      itemBuilder: (context, carouselIndex, _) {
-                        final carouselImageRequestsRecord =
-                            carouselImageRequestsRecordList[carouselIndex];
-                        return Hero(
-                          tag: carouselImageRequestsRecord.responseURL,
-                          transitionOnUserGestures: true,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: CachedNetworkImage(
-                              fadeInDuration: const Duration(milliseconds: 500),
-                              fadeOutDuration: const Duration(milliseconds: 500),
-                              imageUrl: carouselImageRequestsRecord.responseURL,
-                              width: 300.0,
-                              height: 200.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        );
-                      },
-                      carouselController: _model.carouselController ??=
-                          CarouselController(),
-                      options: CarouselOptions(
-                        initialPage:
-                            min(1, carouselImageRequestsRecordList.length - 1),
-                        viewportFraction: 0.5,
-                        disableCenter: true,
-                        enlargeCenterPage: true,
-                        enlargeFactor: 0.25,
-                        enableInfiniteScroll: false,
-                        scrollDirection: Axis.horizontal,
-                        autoPlay: false,
-                        onPageChanged: (index, _) =>
-                            _model.carouselCurrentIndex = index,
-                      ),
-                    ),
-                  );
-                },
-              ),
               Expanded(
                 child: StreamBuilder<List<ImageRequestsRecord>>(
                   stream: queryImageRequestsRecord(
@@ -130,80 +68,68 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
-                          child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                              FlutterFlowTheme.of(context).primary,
-                            ),
-                          ),
-                        ),
+                      return Image.network(
+                        '',
                       );
                     }
-                    List<ImageRequestsRecord>
-                        swipeableStackImageRequestsRecordList = snapshot.data!;
-                    return FlutterFlowSwipeableStack(
-                      onSwipeFn: (index) {},
-                      onLeftSwipe: (index) {},
-                      onRightSwipe: (index) {},
-                      onUpSwipe: (index) {},
-                      onDownSwipe: (index) {},
-                      itemBuilder: (context, swipeableStackIndex) {
-                        final swipeableStackImageRequestsRecord =
-                            swipeableStackImageRequestsRecordList[
-                                swipeableStackIndex];
-                        return InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            await Navigator.push(
-                              context,
-                              PageTransition(
-                                type: PageTransitionType.fade,
-                                child: FlutterFlowExpandedImageView(
-                                  image: CachedNetworkImage(
+                    List<ImageRequestsRecord> carouselImageRequestsRecordList =
+                        snapshot.data!;
+                    return SizedBox(
+                      width: double.infinity,
+                      height: 180.0,
+                      child: CarouselSlider.builder(
+                        itemCount: carouselImageRequestsRecordList.length,
+                        itemBuilder: (context, carouselIndex, _) {
+                          final carouselImageRequestsRecord =
+                              carouselImageRequestsRecordList[carouselIndex];
+                          return Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Hero(
+                                tag: carouselImageRequestsRecord.responseURL,
+                                transitionOnUserGestures: true,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: CachedNetworkImage(
                                     fadeInDuration: const Duration(milliseconds: 500),
                                     fadeOutDuration:
                                         const Duration(milliseconds: 500),
-                                    imageUrl: swipeableStackImageRequestsRecord
-                                        .responseURL,
-                                    fit: BoxFit.contain,
+                                    imageUrl:
+                                        carouselImageRequestsRecord.responseURL,
+                                    width: 300.0,
+                                    height: 200.0,
+                                    fit: BoxFit.cover,
                                   ),
-                                  allowRotation: false,
-                                  tag: swipeableStackImageRequestsRecord
-                                      .responseURL,
-                                  useHeroAnimation: true,
                                 ),
                               ),
-                            );
-                          },
-                          child: Hero(
-                            tag: swipeableStackImageRequestsRecord.responseURL,
-                            transitionOnUserGestures: true,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: CachedNetworkImage(
-                                fadeInDuration: const Duration(milliseconds: 500),
-                                fadeOutDuration: const Duration(milliseconds: 500),
-                                imageUrl: swipeableStackImageRequestsRecord
-                                    .responseURL,
-                                width: double.infinity,
-                                height: double.infinity,
-                                fit: BoxFit.cover,
+                              Text(
+                                carouselImageRequestsRecord.requestPrompt,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Plus Jakarta Sans',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
-                            ),
-                          ),
-                        );
-                      },
-                      itemCount: swipeableStackImageRequestsRecordList.length,
-                      controller: _model.swipeableStackController,
-                      loop: false,
-                      cardDisplayCount: 3,
-                      scale: 0.9,
+                            ],
+                          );
+                        },
+                        carouselController: _model.carouselController ??=
+                            CarouselController(),
+                        options: CarouselOptions(
+                          initialPage: min(
+                              1, carouselImageRequestsRecordList.length - 1),
+                          viewportFraction: 0.5,
+                          disableCenter: true,
+                          enlargeCenterPage: true,
+                          enlargeFactor: 0.25,
+                          enableInfiniteScroll: false,
+                          scrollDirection: Axis.horizontal,
+                          autoPlay: false,
+                          onPageChanged: (index, _) =>
+                              _model.carouselCurrentIndex = index,
+                        ),
+                      ),
                     );
                   },
                 ),
