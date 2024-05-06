@@ -72,49 +72,21 @@ class _StorybookHomeWidgetState extends State<StorybookHomeWidget> {
                   ),
                   scrollDirection: Axis.vertical,
                   children: [
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
-                            'https://picsum.photos/seed/541/600',
-                            width: 300.0,
-                            height: 200.0,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        Text(
-                          'Hello World',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    letterSpacing: 0.0,
-                                  ),
-                        ),
-                      ],
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.network(
+                        'https://picsum.photos/seed/541/600',
+                        width: 300.0,
+                        height: 200.0,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
-                            'https://picsum.photos/seed/541/600',
-                            width: 300.0,
-                            height: 200.0,
-                            fit: BoxFit.cover,
+                    Text(
+                      'Hello World',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Plus Jakarta Sans',
+                            letterSpacing: 0.0,
                           ),
-                        ),
-                        Text(
-                          'Hello World',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    letterSpacing: 0.0,
-                                  ),
-                        ),
-                      ],
                     ),
                   ],
                 ),

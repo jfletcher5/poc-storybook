@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'image_results_model.dart';
 export 'image_results_model.dart';
@@ -61,90 +60,6 @@ class _ImageResultsWidgetState extends State<ImageResultsWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              ListView(
-                padding: EdgeInsets.zero,
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                children: const [],
-              ),
-              Expanded(
-                child: StreamBuilder<List<ImageRequestsRecord>>(
-                  stream: queryImageRequestsRecord(
-                    queryBuilder: (imageRequestsRecord) =>
-                        imageRequestsRecord.where(
-                      'userid',
-                      isEqualTo: currentUserUid,
-                    ),
-                  ),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Image.network(
-                        '',
-                      );
-                    }
-                    List<ImageRequestsRecord> carouselImageRequestsRecordList =
-                        snapshot.data!;
-                    return SizedBox(
-                      width: double.infinity,
-                      height: 180.0,
-                      child: CarouselSlider.builder(
-                        itemCount: carouselImageRequestsRecordList.length,
-                        itemBuilder: (context, carouselIndex, _) {
-                          final carouselImageRequestsRecord =
-                              carouselImageRequestsRecordList[carouselIndex];
-                          return Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Hero(
-                                tag: carouselImageRequestsRecord.responseURL,
-                                transitionOnUserGestures: true,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: CachedNetworkImage(
-                                    fadeInDuration: const Duration(milliseconds: 500),
-                                    fadeOutDuration:
-                                        const Duration(milliseconds: 500),
-                                    imageUrl:
-                                        carouselImageRequestsRecord.responseURL,
-                                    width: 300.0,
-                                    height: 200.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                carouselImageRequestsRecord.requestPrompt,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Plus Jakarta Sans',
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                            ],
-                          );
-                        },
-                        carouselController: _model.carouselController ??=
-                            CarouselController(),
-                        options: CarouselOptions(
-                          initialPage: min(
-                              1, carouselImageRequestsRecordList.length - 1),
-                          viewportFraction: 0.5,
-                          disableCenter: true,
-                          enlargeCenterPage: true,
-                          enlargeFactor: 0.25,
-                          enableInfiniteScroll: false,
-                          scrollDirection: Axis.horizontal,
-                          autoPlay: false,
-                          onPageChanged: (index, _) =>
-                              _model.carouselCurrentIndex = index,
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
               Expanded(
                 child: StreamBuilder<List<ImageRequestsRecord>>(
                   stream: queryImageRequestsRecord(
