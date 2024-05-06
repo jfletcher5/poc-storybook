@@ -125,9 +125,9 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
+      'GameSelection': const GameSelectionWidget(),
       'ImageResults': const ImageResultsWidget(),
       'Settings': const SettingsWidget(),
-      'GameSelection': const GameSelectionWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -151,8 +151,16 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.home_outlined,
               size: 24.0,
             ),
+            label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.image,
+              size: 24.0,
+            ),
             activeIcon: Icon(
-              Icons.home,
+              Icons.image_sharp,
               size: 24.0,
             ),
             label: 'Home',
@@ -161,14 +169,6 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.settings_sharp,
-              size: 24.0,
-            ),
-            label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
               size: 24.0,
             ),
             label: 'Home',
