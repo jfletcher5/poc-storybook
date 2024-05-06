@@ -1,16 +1,11 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'homepage_widget.dart' show HomepageWidget;
-import 'package:carousel_slider/carousel_slider.dart';
+import 'game_selection_widget.dart' show GameSelectionWidget;
 import 'package:flutter/material.dart';
 
-class HomepageModel extends FlutterFlowModel<HomepageWidget> {
+class GameSelectionModel extends FlutterFlowModel<GameSelectionWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for Carousel widget.
-  CarouselController? carouselController;
-
-  int carouselCurrentIndex = 1;
 
   @override
   void initState(BuildContext context) {}

@@ -147,6 +147,22 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
+                        suffixIcon: _model.textController!.text.isNotEmpty
+                            ? InkWell(
+                                onTap: () async {
+                                  _model.textController?.clear();
+                                  setState(() {
+                                    FFAppState().prompt =
+                                        _model.textController.text;
+                                  });
+                                  setState(() {});
+                                },
+                                child: const Icon(
+                                  Icons.clear,
+                                  size: 20.0,
+                                ),
+                              )
+                            : null,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Plus Jakarta Sans',
@@ -380,14 +396,10 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                                   requestJSON: '',
                                 ),
                                 imageRequestsRecordReference);
-                        _model.imageResult = await FastAPIGroup
-                            .generateGenerateImagePostCall
-                            .call(
-                          prompt: FFAppState().prompt,
-                          size: _model.radioButtonResolutionValue,
-                          model: _model.radioButtonModelValue,
-                          quality: _model.radioButtonQualityValue,
-                        );
+                        _model.imageResult =
+                            await FastAPIWImageGenAndCreditsGroup
+                                .generateGenerateImagePostCall
+                                .call();
                         if ((_model.imageResult?.succeeded ?? true)) {
                           await _model.outputdocID!.reference
                               .update(createImageRequestsRecordData(
@@ -397,9 +409,9 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                             ).toString(),
                           ));
 
-                          context.pushNamed('Homepage');
+                          context.pushNamed('ImageResults');
                         } else {
-                          context.pushNamed('Homepage');
+                          context.pushNamed('ImageResults');
                         }
 
                         setState(() {});

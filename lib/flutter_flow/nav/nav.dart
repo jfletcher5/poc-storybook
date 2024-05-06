@@ -87,41 +87,34 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const LoginWidget(),
         ),
         FFRoute(
-          name: 'Homepage',
-          path: '/homepage',
+          name: 'ImageResults',
+          path: '/imageGenResults',
           requireAuth: true,
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Homepage')
-              : const HomepageWidget(),
+              ? const NavBarPage(initialPage: 'ImageResults')
+              : const ImageResultsWidget(),
         ),
         FFRoute(
           name: 'createImage',
           path: '/createImage',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'createImage')
-              : CreateImageWidget(
-                  model: params.getParam(
-                    'model',
-                    ParamType.String,
-                  ),
-                  prompt: params.getParam(
-                    'prompt',
-                    ParamType.String,
-                  ),
-                  quality: params.getParam(
-                    'quality',
-                    ParamType.String,
-                  ),
-                  size: params.getParam(
-                    'size',
-                    ParamType.String,
-                  ),
-                ),
-        ),
-        FFRoute(
-          name: 'imageResult',
-          path: '/imageResult',
-          builder: (context, params) => const ImageResultWidget(),
+          builder: (context, params) => CreateImageWidget(
+            model: params.getParam(
+              'model',
+              ParamType.String,
+            ),
+            prompt: params.getParam(
+              'prompt',
+              ParamType.String,
+            ),
+            quality: params.getParam(
+              'quality',
+              ParamType.String,
+            ),
+            size: params.getParam(
+              'size',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: 'Settings',
@@ -129,6 +122,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'Settings')
               : const SettingsWidget(),
+        ),
+        FFRoute(
+          name: 'GameSelection',
+          path: '/gameSelection',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'GameSelection')
+              : const GameSelectionWidget(),
+        ),
+        FFRoute(
+          name: 'StorybookHome',
+          path: '/storybookHome',
+          builder: (context, params) => const StorybookHomeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

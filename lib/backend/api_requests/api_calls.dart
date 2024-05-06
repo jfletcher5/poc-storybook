@@ -6,38 +6,38 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-/// Start FastAPI Group Code
+/// Start FastAPI w image Gen and Credits Group Code
 
-class FastAPIGroup {
+class FastAPIWImageGenAndCreditsGroup {
   static String baseUrl = 'https://poised-legend-421313.ue.r.appspot.com';
   static Map<String, String> headers = {
-    'Content-Type': 'application/json',
     'accept': 'application/json',
   };
   static GenerateGenerateImagePostCall generateGenerateImagePostCall =
       GenerateGenerateImagePostCall();
+  static GenerateTextFromImageGenerateTextFromImagePostCall
+      generateTextFromImageGenerateTextFromImagePostCall =
+      GenerateTextFromImageGenerateTextFromImagePostCall();
+  static GetCreditsCreditsRemainingGetCall getCreditsCreditsRemainingGetCall =
+      GetCreditsCreditsRemainingGetCall();
+  static UpdateCreditsCreditsUpdatePostCall updateCreditsCreditsUpdatePostCall =
+      UpdateCreditsCreditsUpdatePostCall();
 }
 
 class GenerateGenerateImagePostCall {
-  Future<ApiCallResponse> call({
-    String? prompt = 'picture of bitcoins growing in the forest',
-    String? model = 'dall-e-2',
-    String? size = '1024x1024',
-    String? quality = 'standard',
-  }) async {
-    final ffApiRequestBody = '''
+  Future<ApiCallResponse> call() async {
+    const ffApiRequestBody = '''
 {
-  "prompt": "$prompt",
-  "model": "$model",
-  "size": "$size",
-  "quality": "$quality"
+  "prompt": "",
+  "model": "",
+  "size": "",
+  "quality": ""
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'generate_generate_image__post',
-      apiUrl: '${FastAPIGroup.baseUrl}/generate_image/',
+      apiUrl: '${FastAPIWImageGenAndCreditsGroup.baseUrl}/generate_image/',
       callType: ApiCallType.POST,
       headers: {
-        'Content-Type': 'application/json',
         'accept': 'application/json',
       },
       params: {},
@@ -52,7 +52,77 @@ class GenerateGenerateImagePostCall {
   }
 }
 
-/// End FastAPI Group Code
+class GenerateTextFromImageGenerateTextFromImagePostCall {
+  Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'generate_text_from_image_generate_text_from_image__post',
+      apiUrl:
+          '${FastAPIWImageGenAndCreditsGroup.baseUrl}/generate_text_from_image/',
+      callType: ApiCallType.POST,
+      headers: {
+        'accept': 'application/json',
+      },
+      params: {},
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class GetCreditsCreditsRemainingGetCall {
+  Future<ApiCallResponse> call({
+    String? userid = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'get_credits_credits_remaining__get',
+      apiUrl: '${FastAPIWImageGenAndCreditsGroup.baseUrl}/credits_remaining/',
+      callType: ApiCallType.GET,
+      headers: {
+        'accept': 'application/json',
+      },
+      params: {
+        'userid': userid,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class UpdateCreditsCreditsUpdatePostCall {
+  Future<ApiCallResponse> call({
+    String? userid = '3lb50M0hNGSQDpRzSMOx4ygwDes1',
+    int? credits = 103,
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'update_credits_credits_update__post',
+      apiUrl: '${FastAPIWImageGenAndCreditsGroup.baseUrl}/credits_update/',
+      callType: ApiCallType.POST,
+      headers: {
+        'accept': 'application/json',
+      },
+      params: {
+        'userid': userid,
+        'credits': credits,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+/// End FastAPI w image Gen and Credits Group Code
 
 class ApiPagingParams {
   int nextPageNumber = 0;

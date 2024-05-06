@@ -531,7 +531,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                       }
 
                                                       context.goNamedAuth(
-                                                          'Homepage',
+                                                          'GameSelection',
                                                           context.mounted);
                                                     },
                                                     text: 'Sign In',
@@ -725,7 +725,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 }
 
                                                                 context.goNamedAuth(
-                                                                    'Homepage',
+                                                                    'GameSelection',
                                                                     context
                                                                         .mounted);
                                                               },
@@ -1222,7 +1222,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                       }
 
                                                       context.goNamedAuth(
-                                                          'Homepage',
+                                                          'GameSelection',
                                                           context.mounted);
                                                     },
                                                     text: 'Create Account',
@@ -1359,7 +1359,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 }
 
                                                                 context.goNamedAuth(
-                                                                    'Homepage',
+                                                                    'GameSelection',
                                                                     context
                                                                         .mounted);
                                                               },
