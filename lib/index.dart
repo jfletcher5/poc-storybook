@@ -9,3 +9,5 @@ export '/core/game_selection/game_selection_widget.dart'
     show GameSelectionWidget;
 export '/storybook/storybook_home/storybook_home_widget.dart'
     show StorybookHomeWidget;
+export '/storybook/create_story/create_story_widget.dart'
+    show CreateStoryWidget;

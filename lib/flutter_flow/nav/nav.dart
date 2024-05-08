@@ -134,6 +134,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'StorybookHome',
           path: '/storybookHome',
           builder: (context, params) => const StorybookHomeWidget(),
+        ),
+        FFRoute(
+          name: 'createStory',
+          path: '/createStory',
+          builder: (context, params) => const CreateStoryWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
