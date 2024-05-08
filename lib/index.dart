@@ -11,3 +11,5 @@ export '/storybook/storybook_home/storybook_home_widget.dart'
     show StorybookHomeWidget;
 export '/storybook/create_story/create_story_widget.dart'
     show CreateStoryWidget;
+export '/storybook/add_character/add_character_widget.dart'
+    show AddCharacterWidget;

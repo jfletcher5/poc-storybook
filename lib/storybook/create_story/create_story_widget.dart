@@ -220,20 +220,36 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                       ],
                                     ),
                                   ),
-                                  Slider(
-                                    activeColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    inactiveColor:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    min: 1.0,
-                                    max: 6.0,
-                                    value: _model.sliderValue ??= 3.0,
-                                    label: _model.sliderValue?.toString(),
-                                    divisions: 5,
-                                    onChanged: (newValue) {
-                                      setState(
-                                          () => _model.sliderValue = newValue);
-                                    },
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Text(
+                                        'Reader\'s Age',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Plus Jakarta Sans',
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                      Slider(
+                                        activeColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        inactiveColor:
+                                            FlutterFlowTheme.of(context)
+                                                .alternate,
+                                        min: 1.0,
+                                        max: 6.0,
+                                        value: _model.sliderValue ??= 3.0,
+                                        label: _model.sliderValue?.toString(),
+                                        divisions: 5,
+                                        onChanged: (newValue) {
+                                          setState(() =>
+                                              _model.sliderValue = newValue);
+                                        },
+                                      ),
+                                    ],
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
@@ -543,9 +559,10 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                   .primaryText,
                                                               size: 24.0,
                                                             ),
-                                                            onPressed: () {
-                                                              print(
-                                                                  'IconButton pressed ...');
+                                                            onPressed:
+                                                                () async {
+                                                              context.pushNamed(
+                                                                  'AddCharacter');
                                                             },
                                                           ),
                                                         ],
