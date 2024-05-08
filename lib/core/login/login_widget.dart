@@ -540,7 +540,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                           context.goNamedAuth(
                                                               'ActivitySelection',
                                                               context.mounted);
-                                                      _model.output =
+                                                      _model.outputlogin =
                                                           await queryLMCreditsRecordOnce(
                                                         queryBuilder:
                                                             (lMCreditsRecord) =>
@@ -553,7 +553,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         singleRecord: true,
                                                       ).then((s) =>
                                                               s.firstOrNull);
-                                                      if (!(_model.output
+                                                      if (!(_model.outputlogin
                                                               ?.totalCreditsPurchased !=
                                                           null)) {
                                                         unawaited(
@@ -766,7 +766,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         'ActivitySelection',
                                                                         context
                                                                             .mounted);
-                                                                _model.output =
+                                                                _model.outputgauth =
                                                                     await queryLMCreditsRecordOnce(
                                                                   queryBuilder:
                                                                       (lMCreditsRecord) =>
@@ -781,7 +781,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 ).then((s) => s
                                                                         .firstOrNull);
                                                                 if (!(_model
-                                                                        .output
+                                                                        .outputgauth
                                                                         ?.totalCreditsPurchased !=
                                                                     null)) {
                                                                   unawaited(

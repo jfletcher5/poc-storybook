@@ -22,9 +22,9 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   late bool passwordVisibility;
   String? Function(BuildContext, String?)? passwordTextControllerValidator;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  LMCreditsRecord? output;
+  LMCreditsRecord? outputlogin;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  LMCreditsRecord? output;
+  LMCreditsRecord? outputgauth;
   // State field(s) for emailAddress_Create widget.
   FocusNode? emailAddressCreateFocusNode;
   TextEditingController? emailAddressCreateTextController;
