@@ -143,6 +143,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AddCharacter',
           path: '/addCharacter',
           builder: (context, params) => const AddCharacterWidget(),
+        ),
+        FFRoute(
+          name: 'viewStorybook',
+          path: '/viewStorybook',
+          builder: (context, params) => const ViewStorybookWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

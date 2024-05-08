@@ -13,3 +13,5 @@ export '/storybook/create_story/create_story_widget.dart'
     show CreateStoryWidget;
 export '/storybook/add_character/add_character_widget.dart'
     show AddCharacterWidget;
+export '/storybook/view_storybook/view_storybook_widget.dart'
+    show ViewStorybookWidget;

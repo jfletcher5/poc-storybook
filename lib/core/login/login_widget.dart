@@ -177,7 +177,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      'brand.ai',
+                                      'llastmile.ai',
                                       style: FlutterFlowTheme.of(context)
                                           .headlineMedium
                                           .override(
@@ -1289,6 +1289,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         return;
                                                       }
 
+                                                      await action_blocks
+                                                          .initializeUser(
+                                                              context);
+
                                                       context.goNamedAuth(
                                                           'ActivitySelection',
                                                           context.mounted);
@@ -1425,6 +1429,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                     null) {
                                                                   return;
                                                                 }
+                                                                await action_blocks
+                                                                    .initializeUser(
+                                                                        context);
 
                                                                 context.goNamedAuth(
                                                                     'ActivitySelection',

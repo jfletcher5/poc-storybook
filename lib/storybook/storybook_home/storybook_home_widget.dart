@@ -174,11 +174,20 @@ class _StorybookHomeWidgetState extends State<StorybookHomeWidget> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/963/600',
-                                    fit: BoxFit.scaleDown,
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('viewStorybook');
+                                  },
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.network(
+                                      'https://picsum.photos/seed/963/600',
+                                      fit: BoxFit.scaleDown,
+                                    ),
                                   ),
                                 ),
                               ),

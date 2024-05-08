@@ -959,7 +959,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                               child: FFButtonWidget(
                                                 onPressed: () async {
                                                   context.pushNamed(
-                                                      'StorybookHome');
+                                                      'viewStorybook');
                                                 },
                                                 text: 'Save it!',
                                                 icon: const Icon(
