@@ -19,6 +19,12 @@ class CreateStoryModel extends FlutterFlowModel<CreateStoryWidget> {
       choiceChipsValueController?.value = val;
   // State field(s) for Slider widget.
   double? sliderValue;
+  // State field(s) for DropDown widget.
+  String? dropDownValue1;
+  FormFieldController<String>? dropDownValueController1;
+  // State field(s) for DropDown widget.
+  String? dropDownValue2;
+  FormFieldController<String>? dropDownValueController2;
 
   @override
   void initState(BuildContext context) {}
