@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'login_widget.dart' show LoginWidget;
 import 'package:flutter/material.dart';
@@ -20,6 +21,10 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   TextEditingController? passwordTextController;
   late bool passwordVisibility;
   String? Function(BuildContext, String?)? passwordTextControllerValidator;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  LMCreditsRecord? output;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  LMCreditsRecord? output;
   // State field(s) for emailAddress_Create widget.
   FocusNode? emailAddressCreateFocusNode;
   TextEditingController? emailAddressCreateTextController;
