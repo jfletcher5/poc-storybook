@@ -91,9 +91,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ImageResults',
           path: '/imageGenResults',
           requireAuth: true,
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ImageResults')
-              : const ImageResultsWidget(),
+          builder: (context, params) => const ImageResultsWidget(),
         ),
         FFRoute(
           name: 'createImage',
@@ -125,11 +123,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const SettingsWidget(),
         ),
         FFRoute(
-          name: 'GameSelection',
-          path: '/gameSelection',
+          name: 'ActivitySelection',
+          path: '/activitySelection',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'GameSelection')
-              : const GameSelectionWidget(),
+              ? const NavBarPage(initialPage: 'ActivitySelection')
+              : const ActivitySelectionWidget(),
         ),
         FFRoute(
           name: 'StorybookHome',

@@ -818,8 +818,6 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                               8.0),
                                                       child: Image.network(
                                                         'https://picsum.photos/seed/186/600',
-                                                        width: 300.0,
-                                                        height: 200.0,
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),

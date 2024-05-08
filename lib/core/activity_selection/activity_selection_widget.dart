@@ -2,25 +2,26 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'game_selection_model.dart';
-export 'game_selection_model.dart';
+import 'activity_selection_model.dart';
+export 'activity_selection_model.dart';
 
-class GameSelectionWidget extends StatefulWidget {
-  const GameSelectionWidget({super.key});
+class ActivitySelectionWidget extends StatefulWidget {
+  const ActivitySelectionWidget({super.key});
 
   @override
-  State<GameSelectionWidget> createState() => _GameSelectionWidgetState();
+  State<ActivitySelectionWidget> createState() =>
+      _ActivitySelectionWidgetState();
 }
 
-class _GameSelectionWidgetState extends State<GameSelectionWidget> {
-  late GameSelectionModel _model;
+class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
+  late ActivitySelectionModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => GameSelectionModel());
+    _model = createModel(context, () => ActivitySelectionModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -40,7 +41,6 @@ class _GameSelectionWidgetState extends State<GameSelectionWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,

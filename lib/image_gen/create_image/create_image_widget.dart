@@ -397,8 +397,7 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                                 ),
                                 imageRequestsRecordReference);
                         _model.imageResult =
-                            await FastAPIWImageGenAndCreditsGroup
-                                .generateGenerateImagePostCall
+                            await FastAPIWImageGenAndCreditsGroup.generateCall
                                 .call();
                         if ((_model.imageResult?.succeeded ?? true)) {
                           await _model.outputdocID!.reference

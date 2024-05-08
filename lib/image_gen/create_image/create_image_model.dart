@@ -21,7 +21,7 @@ class CreateImageModel extends FlutterFlowModel<CreateImageWidget> {
   FormFieldController<String>? radioButtonResolutionValueController;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   ImageRequestsRecord? outputdocID;
-  // Stores action output result for [Backend Call - API (generate_generate_image__post)] action in Button widget.
+  // Stores action output result for [Backend Call - API (generate)] action in Button widget.
   ApiCallResponse? imageResult;
 
   @override
