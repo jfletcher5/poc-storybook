@@ -25,6 +25,10 @@ class CreateStoryModel extends FlutterFlowModel<CreateStoryWidget> {
   // State field(s) for DropDown widget.
   String? dropDownValue2;
   FormFieldController<String>? dropDownValueController2;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -33,5 +37,7 @@ class CreateStoryModel extends FlutterFlowModel<CreateStoryWidget> {
   void dispose() {
     unfocusNode.dispose();
     tabBarController?.dispose();
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
   }
 }

@@ -250,7 +250,7 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
                       color: FlutterFlowTheme.of(context).secondaryText,
                       size: 24.0,
                     ),
-                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                    fillColor: FlutterFlowTheme.of(context).primaryBackground,
                     elevation: 2.0,
                     borderColor: FlutterFlowTheme.of(context).alternate,
                     borderWidth: 2.0,
