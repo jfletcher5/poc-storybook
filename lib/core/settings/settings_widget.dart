@@ -125,7 +125,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(8.0, 24.0, 8.0, 8.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -196,7 +197,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 8.0, 0.0, 0.0),
+                              0.0, 24.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [

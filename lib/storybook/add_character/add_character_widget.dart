@@ -79,10 +79,19 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
                       flex: 1,
                       child: Align(
                         alignment: const AlignmentDirectional(-1.0, 0.0),
-                        child: Icon(
-                          Icons.cancel_sharp,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 50.0,
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.safePop();
+                          },
+                          child: Icon(
+                            Icons.cancel_sharp,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            size: 50.0,
+                          ),
                         ),
                       ),
                     ),
