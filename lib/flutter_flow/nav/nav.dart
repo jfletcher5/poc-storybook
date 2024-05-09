@@ -120,7 +120,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/settings',
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'Settings')
-              : const SettingsWidget(),
+              : SettingsWidget(
+                  creditRequest: params.getParam(
+                    'creditRequest',
+                    ParamType.int,
+                  ),
+                ),
         ),
         FFRoute(
           name: 'ActivitySelection',

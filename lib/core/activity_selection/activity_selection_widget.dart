@@ -61,14 +61,18 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
           top: true,
           child: Stack(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset(
-                  'assets/images/DALLE_2024-05-08_16.13.12_-_Create_a_digital_artwork_suitable_for_use_as_a_background,_featuring_a_softer_and_less_busy_colorful_abstract_pattern._The_design_should_be_more_subdu.webp',
-                  width: 412.0,
-                  height: 690.0,
-                  fit: BoxFit.cover,
-                ),
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(0.0),
+                    child: Image.asset(
+                      'assets/images/DALLE_2024-05-08_16.13.12_-_Create_a_digital_artwork_suitable_for_use_as_a_background,_featuring_a_softer_and_less_busy_colorful_abstract_pattern._The_design_should_be_more_subdu.webp',
+                      height: 800.0,
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                ],
               ),
               Align(
                 alignment: const AlignmentDirectional(0.0, 1.0),
