@@ -144,6 +144,9 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                                     size: 24.0,
                                   ),
                                   onPressed: () async {
+                                    logFirebaseEvent(
+                                        'REQUEST_CREDITS_close_sharp_ICN_ON_TAP');
+                                    logFirebaseEvent('IconButton_bottom_sheet');
                                     Navigator.pop(context);
                                   },
                                 ),
@@ -290,18 +293,24 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                             16.0, 16.0, 16.0, 44.0),
                         child: FFButtonWidget(
                           onPressed: () async {
+                            logFirebaseEvent(
+                                'REQUEST_CREDITS_REQUEST_FOR_MORE_CREDITS');
+                            logFirebaseEvent('Button_custom_action');
                             _model.outputInt = await actions.newCustomAction(
                               _model.choiceChipsValue!,
                             );
+                            logFirebaseEvent('Button_navigate_to');
 
                             context.pushNamed('Settings');
 
+                            logFirebaseEvent('Button_backend_call');
                             _model.apiResult28j =
                                 await CoreServicesGroup.updateCreditsCall.call(
                               userid: currentUserUid,
                               credits: _model.outputInt,
                             );
                             if ((_model.apiResult28j?.succeeded ?? true)) {
+                              logFirebaseEvent('Button_show_snack_bar');
                               ScaffoldMessenger.of(context).clearSnackBars();
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
@@ -319,6 +328,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                                 ),
                               );
                             } else {
+                              logFirebaseEvent('Button_show_snack_bar');
                               ScaffoldMessenger.of(context).clearSnackBars();
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(

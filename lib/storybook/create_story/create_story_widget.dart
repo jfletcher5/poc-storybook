@@ -28,6 +28,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
     super.initState();
     _model = createModel(context, () => CreateStoryModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'createStory'});
     _model.tabBarController = TabController(
       vsync: this,
       length: 3,
@@ -673,6 +674,11 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                       ),
                                                                       onPressed:
                                                                           () async {
+                                                                        logFirebaseEvent(
+                                                                            'CREATE_STORY_PAGE_add_ICN_ON_TAP');
+                                                                        logFirebaseEvent(
+                                                                            'IconButton_navigate_to');
+
                                                                         context.pushNamed(
                                                                             'AddCharacter');
                                                                       },
@@ -1245,6 +1251,11 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                 0.0, 1.0),
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
+                                                            logFirebaseEvent(
+                                                                'CREATE_STORY_PAGE_SAVE_IT!_BTN_ON_TAP');
+                                                            logFirebaseEvent(
+                                                                'Button_navigate_to');
+
                                                             context.pushNamed(
                                                                 'viewStorybook');
                                                           },

@@ -21,6 +21,8 @@ class _StorybookHomeWidgetState extends State<StorybookHomeWidget> {
     super.initState();
     _model = createModel(context, () => StorybookHomeModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'StorybookHome'});
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
@@ -45,6 +47,9 @@ class _StorybookHomeWidgetState extends State<StorybookHomeWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () async {
+            logFirebaseEvent('STORYBOOK_HOME_FloatingActionButton_guuf');
+            logFirebaseEvent('FloatingActionButton_navigate_to');
+
             context.pushNamed('createStory');
           },
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -229,6 +234,10 @@ class _StorybookHomeWidgetState extends State<StorybookHomeWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
+                                        logFirebaseEvent(
+                                            'STORYBOOK_HOME_Image_qupwgtc6_ON_TAP');
+                                        logFirebaseEvent('Image_navigate_to');
+
                                         context.pushNamed('viewStorybook');
                                       },
                                       child: ClipRRect(
@@ -272,6 +281,10 @@ class _StorybookHomeWidgetState extends State<StorybookHomeWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
+                                        logFirebaseEvent(
+                                            'STORYBOOK_HOME_Image_symt4cih_ON_TAP');
+                                        logFirebaseEvent('Image_navigate_to');
+
                                         context.pushNamed('viewStorybook');
                                       },
                                       child: ClipRRect(
@@ -315,6 +328,10 @@ class _StorybookHomeWidgetState extends State<StorybookHomeWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
+                                        logFirebaseEvent(
+                                            'STORYBOOK_HOME_Image_fsuben38_ON_TAP');
+                                        logFirebaseEvent('Image_navigate_to');
+
                                         context.pushNamed('viewStorybook');
                                       },
                                       child: ClipRRect(
@@ -358,6 +375,10 @@ class _StorybookHomeWidgetState extends State<StorybookHomeWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
+                                        logFirebaseEvent(
+                                            'STORYBOOK_HOME_Image_0loi1hgz_ON_TAP');
+                                        logFirebaseEvent('Image_navigate_to');
+
                                         context.pushNamed('viewStorybook');
                                       },
                                       child: ClipRRect(

@@ -24,6 +24,8 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
     super.initState();
     _model = createModel(context, () => AddCharacterModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'AddCharacter'});
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -85,6 +87,9 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
+                            logFirebaseEvent(
+                                'ADD_CHARACTER_PAGE_Icon_kv4skygl_ON_TAP');
+                            logFirebaseEvent('Icon_navigate_back');
                             context.safePop();
                           },
                           child: Icon(

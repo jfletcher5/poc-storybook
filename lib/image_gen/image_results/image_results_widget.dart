@@ -25,6 +25,8 @@ class _ImageResultsWidgetState extends State<ImageResultsWidget> {
     super.initState();
     _model = createModel(context, () => ImageResultsModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'ImageResults'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -46,6 +48,9 @@ class _ImageResultsWidgetState extends State<ImageResultsWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
+            logFirebaseEvent('IMAGE_RESULTS_FloatingActionButton_eho8i');
+            logFirebaseEvent('FloatingActionButton_navigate_to');
+
             context.pushNamed('createImage');
           },
           backgroundColor: FlutterFlowTheme.of(context).primary,

@@ -23,6 +23,8 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
     super.initState();
     _model = createModel(context, () => ActivitySelectionModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'ActivitySelection'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -127,6 +129,10 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                                     alignment: const AlignmentDirectional(1.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'ACTIVITY_SELECTION_PAGE_START_BTN_ON_TAP');
+                                        logFirebaseEvent('Button_navigate_to');
+
                                         context.pushNamed('ImageResults');
                                       },
                                       text: 'Start',
@@ -183,6 +189,10 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                                     alignment: const AlignmentDirectional(1.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'ACTIVITY_SELECTION_PAGE_START_BTN_ON_TAP');
+                                        logFirebaseEvent('Button_navigate_to');
+
                                         context.pushNamed('StorybookHome');
                                       },
                                       text: 'Start',

@@ -22,6 +22,8 @@ class _ViewStorybookWidgetState extends State<ViewStorybookWidget> {
     super.initState();
     _model = createModel(context, () => ViewStorybookModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'viewStorybook'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

@@ -34,6 +34,7 @@ class _LoginWidgetState extends State<LoginWidget>
     super.initState();
     _model = createModel(context, () => LoginModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Login'});
     _model.tabBarController = TabController(
       vsync: this,
       length: 2,
@@ -206,7 +207,7 @@ class _LoginWidgetState extends State<LoginWidget>
                               8.0, 36.0, 8.0, 0.0),
                           child: Container(
                             width: double.infinity,
-                            height: MediaQuery.sizeOf(context).height,
+                            height: MediaQuery.sizeOf(context).height * 0.75,
                             constraints: const BoxConstraints(
                               maxWidth: 602.0,
                             ),
@@ -577,8 +578,12 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   16.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
+                                                          logFirebaseEvent(
+                                                              'LOGIN_PAGE_SIGN_IN_BTN_ON_TAP');
                                                           Function() navigate =
                                                               () {};
+                                                          logFirebaseEvent(
+                                                              'Button_auth');
                                                           GoRouter.of(context)
                                                               .prepareAuthEvent();
 
@@ -602,6 +607,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   'ActivitySelection',
                                                                   context
                                                                       .mounted);
+                                                          logFirebaseEvent(
+                                                              'Button_firestore_query');
                                                           _model.outputlogin =
                                                               await queryLMCreditsRecordOnce(
                                                             queryBuilder:
@@ -619,6 +626,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   .outputlogin
                                                                   ?.totalCreditsPurchased !=
                                                               null)) {
+                                                            logFirebaseEvent(
+                                                                'Button_action_block');
                                                             unawaited(
                                                               () async {
                                                                 await action_blocks
@@ -822,9 +831,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                     FFButtonWidget(
                                                                   onPressed:
                                                                       () async {
+                                                                    logFirebaseEvent(
+                                                                        'LOGIN_CONTINUE_WITH_GOOGLE_BTN_ON_TAP');
                                                                     Function()
                                                                         navigate =
                                                                         () {};
+                                                                    logFirebaseEvent(
+                                                                        'Button_auth');
                                                                     GoRouter.of(
                                                                             context)
                                                                         .prepareAuthEvent();
@@ -839,6 +852,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         'ActivitySelection',
                                                                         context
                                                                             .mounted);
+                                                                    logFirebaseEvent(
+                                                                        'Button_firestore_query');
                                                                     _model.outputgauth =
                                                                         await queryLMCreditsRecordOnce(
                                                                       queryBuilder:
@@ -856,6 +871,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                             .outputgauth
                                                                             ?.totalCreditsPurchased !=
                                                                         null)) {
+                                                                      logFirebaseEvent(
+                                                                          'Button_action_block');
                                                                       unawaited(
                                                                         () async {
                                                                           await action_blocks
@@ -1497,6 +1514,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   16.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
+                                                          logFirebaseEvent(
+                                                              'LOGIN_PAGE_CREATE_ACCOUNT_BTN_ON_TAP');
+                                                          logFirebaseEvent(
+                                                              'Button_auth');
                                                           GoRouter.of(context)
                                                               .prepareAuthEvent();
                                                           if (_model
@@ -1542,6 +1563,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                     .text,
                                                               ));
 
+                                                          logFirebaseEvent(
+                                                              'Button_action_block');
                                                           await action_blocks
                                                               .initializeUser(
                                                                   context);
@@ -1675,6 +1698,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                     FFButtonWidget(
                                                                   onPressed:
                                                                       () async {
+                                                                    logFirebaseEvent(
+                                                                        'LOGIN_CONTINUE_WITH_GOOGLE_BTN_ON_TAP');
+                                                                    logFirebaseEvent(
+                                                                        'Button_auth');
                                                                     GoRouter.of(
                                                                             context)
                                                                         .prepareAuthEvent();
@@ -1685,6 +1712,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         null) {
                                                                       return;
                                                                     }
+                                                                    logFirebaseEvent(
+                                                                        'Button_action_block');
                                                                     await action_blocks
                                                                         .initializeUser(
                                                                             context);

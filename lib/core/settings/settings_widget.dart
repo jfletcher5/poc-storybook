@@ -31,6 +31,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
     super.initState();
     _model = createModel(context, () => SettingsModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Settings'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -261,6 +262,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                               padding: const EdgeInsets.all(4.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'SETTINGS_UPDATE_TOTAL_CREDITS_BTN_ON_TAP');
+                                  logFirebaseEvent('Button_bottom_sheet');
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
@@ -315,6 +319,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                               padding: const EdgeInsets.all(4.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'SETTINGS_PAGE_LOGOUT_BTN_ON_TAP');
+                                  logFirebaseEvent('Button_auth');
                                   GoRouter.of(context).prepareAuthEvent();
                                   await authManager.signOut();
                                   GoRouter.of(context).clearRedirectLocation();

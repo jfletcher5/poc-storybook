@@ -43,6 +43,7 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
     super.initState();
     _model = createModel(context, () => CreateImageModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'createImage'});
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
@@ -100,6 +101,9 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                         '_model.textController',
                         const Duration(milliseconds: 2000),
                         () async {
+                          logFirebaseEvent(
+                              'CREATE_IMAGE_TextField_c2h07u2a_ON_TEXTF');
+                          logFirebaseEvent('TextField_update_app_state');
                           setState(() {
                             FFAppState().prompt = _model.textController.text;
                           });
@@ -151,6 +155,10 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                             ? InkWell(
                                 onTap: () async {
                                   _model.textController?.clear();
+                                  logFirebaseEvent(
+                                      'CREATE_IMAGE_TextField_c2h07u2a_ON_TEXTF');
+                                  logFirebaseEvent(
+                                      'TextField_update_app_state');
                                   setState(() {
                                     FFAppState().prompt =
                                         _model.textController.text;
@@ -208,6 +216,10 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                               options: ['dall-e-2', 'dall-e-3'].toList(),
                               onChanged: (val) async {
                                 setState(() {});
+                                logFirebaseEvent(
+                                    'CREATE_IMAGE_RadioButtonModel_ON_FORM_WI');
+                                logFirebaseEvent(
+                                    'RadioButtonModel_update_app_state');
                                 setState(() {
                                   FFAppState().model =
                                       _model.radioButtonModelValue!;
@@ -272,6 +284,10 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                               options: ['standard', 'hd'].toList(),
                               onChanged: (val) async {
                                 setState(() {});
+                                logFirebaseEvent(
+                                    'CREATE_IMAGE_RadioButtonQuality_ON_FORM_');
+                                logFirebaseEvent(
+                                    'RadioButtonQuality_update_app_state');
                                 setState(() {
                                   FFAppState().quality =
                                       _model.radioButtonQualityValue!;
@@ -334,6 +350,10 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                               options: ['1024x1024', '1024x1792'].toList(),
                               onChanged: (val) async {
                                 setState(() {});
+                                logFirebaseEvent(
+                                    'CREATE_IMAGE_RadioButtonResolution_ON_FO');
+                                logFirebaseEvent(
+                                    'RadioButtonResolution_update_app_state');
                                 setState(() {
                                   FFAppState().size =
                                       _model.radioButtonResolutionValue!;
@@ -380,6 +400,10 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CREATE_IMAGE_GENERATE_IMAGE_BTN_ON_TAP');
+                        logFirebaseEvent('Button_backend_call');
+
                         var imageRequestsRecordReference =
                             ImageRequestsRecord.collection.doc();
                         await imageRequestsRecordReference
@@ -396,9 +420,12 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                                   requestJSON: '',
                                 ),
                                 imageRequestsRecordReference);
+                        logFirebaseEvent('Button_backend_call');
                         _model.imageResult =
                             await CoreServicesGroup.generateCall.call();
                         if ((_model.imageResult?.succeeded ?? true)) {
+                          logFirebaseEvent('Button_backend_call');
+
                           await _model.outputdocID!.reference
                               .update(createImageRequestsRecordData(
                             responseURL: getJsonField(
@@ -406,9 +433,12 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                               r'''$.result''',
                             ).toString(),
                           ));
+                          logFirebaseEvent('Button_navigate_to');
 
                           context.pushNamed('ImageResults');
                         } else {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed('ImageResults');
                         }
 
