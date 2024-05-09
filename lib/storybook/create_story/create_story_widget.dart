@@ -71,6 +71,8 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 64.0, 0.0, 0.0),
                 child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
                     borderRadius: const BorderRadius.only(
@@ -781,14 +783,52 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
-                                                  Flexible(
+                                                  Expanded(
+                                                    flex: 1,
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
-                                                                  0.0,
+                                                                  16.0,
+                                                                  0.0),
+                                                      child:
+                                                          FlutterFlowIconButton(
+                                                        borderColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        borderRadius: 20.0,
+                                                        borderWidth: 1.0,
+                                                        buttonSize: 40.0,
+                                                        fillColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .accent1,
+                                                        icon: Icon(
+                                                          Icons.mic,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          size: 24.0,
+                                                        ),
+                                                        onPressed: () {
+                                                          print(
+                                                              'IconButton pressed ...');
+                                                        },
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Flexible(
+                                                    flex: 3,
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  16.0,
+                                                                  8.0,
                                                                   16.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () {

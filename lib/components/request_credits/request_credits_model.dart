@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'request_credits_widget.dart' show RequestCreditsWidget;
@@ -20,6 +21,10 @@ class RequestCreditsModel extends FlutterFlowModel<RequestCreditsWidget> {
   FocusNode? emailAddressFocusNode;
   TextEditingController? emailAddressTextController;
   String? Function(BuildContext, String?)? emailAddressTextControllerValidator;
+  // Stores action output result for [Custom Action - newCustomAction] action in Button widget.
+  int? outputInt;
+  // Stores action output result for [Backend Call - API (Update Credits)] action in Button widget.
+  ApiCallResponse? apiResult28j;
 
   @override
   void initState(BuildContext context) {}

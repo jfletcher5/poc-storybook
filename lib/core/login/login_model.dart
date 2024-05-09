@@ -25,6 +25,11 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   LMCreditsRecord? outputlogin;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   LMCreditsRecord? outputgauth;
+  // State field(s) for displayName_Create widget.
+  FocusNode? displayNameCreateFocusNode;
+  TextEditingController? displayNameCreateTextController;
+  String? Function(BuildContext, String?)?
+      displayNameCreateTextControllerValidator;
   // State field(s) for emailAddress_Create widget.
   FocusNode? emailAddressCreateFocusNode;
   TextEditingController? emailAddressCreateTextController;
@@ -59,6 +64,9 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
 
     passwordFocusNode?.dispose();
     passwordTextController?.dispose();
+
+    displayNameCreateFocusNode?.dispose();
+    displayNameCreateTextController?.dispose();
 
     emailAddressCreateFocusNode?.dispose();
     emailAddressCreateTextController?.dispose();

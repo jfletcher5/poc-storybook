@@ -85,6 +85,11 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: const [Locale('en', '')],
       theme: ThemeData(
         brightness: Brightness.light,
+        scrollbarTheme: ScrollbarThemeData(
+          thumbVisibility: MaterialStateProperty.all(false),
+          trackVisibility: MaterialStateProperty.all(false),
+          interactive: false,
+        ),
         useMaterial3: false,
       ),
       themeMode: _themeMode,

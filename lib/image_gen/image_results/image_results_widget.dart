@@ -77,7 +77,7 @@ class _ImageResultsWidgetState extends State<ImageResultsWidget> {
                         child: SizedBox(
                           width: 50.0,
                           height: 50.0,
-                          child: SpinKitWave(
+                          child: SpinKitFadingCube(
                             color: FlutterFlowTheme.of(context).primary,
                             size: 50.0,
                           ),

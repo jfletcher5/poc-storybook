@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -5,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'request_credits_model.dart';
 export 'request_credits_model.dart';
@@ -115,7 +118,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 16.0, 0.0, 0.0),
                             child: Text(
-                              'How many are you reqesting?',
+                              'How many would you like?',
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
                                   .override(
@@ -286,8 +289,57 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 16.0, 16.0, 44.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            _model.outputInt = await actions.newCustomAction(
+                              _model.choiceChipsValue!,
+                            );
+
+                            context.pushNamed('Settings');
+
+                            _model.apiResult28j =
+                                await FastAPIWImageGenAndCreditsGroup
+                                    .updateCreditsCall
+                                    .call(
+                              userid: currentUserUid,
+                              credits: _model.outputInt,
+                            );
+                            if ((_model.apiResult28j?.succeeded ?? true)) {
+                              ScaffoldMessenger.of(context).clearSnackBars();
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    (_model.apiResult28j?.jsonBody ?? '')
+                                        .toString(),
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: const Duration(milliseconds: 3200),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                            } else {
+                              ScaffoldMessenger.of(context).clearSnackBars();
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    (_model.apiResult28j?.jsonBody ?? '')
+                                        .toString(),
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: const Duration(milliseconds: 3200),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                            }
+
+                            setState(() {});
                           },
                           text: 'Request for more credits',
                           options: FFButtonOptions(
