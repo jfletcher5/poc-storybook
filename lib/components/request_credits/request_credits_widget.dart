@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_choice_chips.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -107,18 +108,46 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                           ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 0.0, 0.0),
-                        child: Text(
-                          'How many are you reqesting?',
-                          style: FlutterFlowTheme.of(context)
-                              .headlineSmall
-                              .override(
-                                fontFamily: 'Outfit',
-                                letterSpacing: 0.0,
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                16.0, 16.0, 0.0, 0.0),
+                            child: Text(
+                              'How many are you reqesting?',
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .override(
+                                    fontFamily: 'Outfit',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ),
+                          Flexible(
+                            child: Align(
+                              alignment: const AlignmentDirectional(1.0, 0.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 12.0, 0.0),
+                                child: FlutterFlowIconButton(
+                                  borderColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  borderRadius: 8.0,
+                                  borderWidth: 1.0,
+                                  buttonSize: 40.0,
+                                  icon: const Icon(
+                                    Icons.close_sharp,
+                                    size: 24.0,
+                                  ),
+                                  onPressed: () async {
+                                    Navigator.pop(context);
+                                  },
+                                ),
                               ),
-                        ),
+                            ),
+                          ),
+                        ],
                       ),
                       Padding(
                         padding:
