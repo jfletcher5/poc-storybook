@@ -6,9 +6,9 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-/// Start FastAPI w image Gen and Credits Group Code
+/// Start Core Services Group Code
 
-class FastAPIWImageGenAndCreditsGroup {
+class CoreServicesGroup {
   static String baseUrl = 'https://poised-legend-421313.ue.r.appspot.com';
   static Map<String, String> headers = {
     'accept': 'application/json',
@@ -37,7 +37,7 @@ class GenerateCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'generate',
-      apiUrl: '${FastAPIWImageGenAndCreditsGroup.baseUrl}/generate_image/',
+      apiUrl: '${CoreServicesGroup.baseUrl}/image_services/generate_image/',
       callType: ApiCallType.POST,
       headers: {
         'accept': 'application/json',
@@ -58,8 +58,7 @@ class GenerateTextFromImageGenerateTextFromImagePostCall {
   Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'generate_text_from_image_generate_text_from_image__post',
-      apiUrl:
-          '${FastAPIWImageGenAndCreditsGroup.baseUrl}/generate_text_from_image/',
+      apiUrl: '${CoreServicesGroup.baseUrl}/generate_text_from_image/',
       callType: ApiCallType.POST,
       headers: {
         'accept': 'application/json',
@@ -81,7 +80,7 @@ class GetCreditsCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Get Credits',
-      apiUrl: '${FastAPIWImageGenAndCreditsGroup.baseUrl}/credits_remaining/',
+      apiUrl: '${CoreServicesGroup.baseUrl}/user_services/credits_remaining/',
       callType: ApiCallType.GET,
       headers: {
         'accept': 'application/json',
@@ -108,7 +107,7 @@ class UpdateCreditsCall {
 "credits": $credits}''';
     return ApiManager.instance.makeApiCall(
       callName: 'Update Credits',
-      apiUrl: '${FastAPIWImageGenAndCreditsGroup.baseUrl}/credits_update/',
+      apiUrl: '${CoreServicesGroup.baseUrl}/user_services/credits_update/',
       callType: ApiCallType.POST,
       headers: {
         'accept': 'application/json',
@@ -125,7 +124,7 @@ class UpdateCreditsCall {
   }
 }
 
-/// End FastAPI w image Gen and Credits Group Code
+/// End Core Services Group Code
 
 class ApiPagingParams {
   int nextPageNumber = 0;

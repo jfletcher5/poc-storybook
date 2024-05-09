@@ -297,9 +297,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                             context.pushNamed('Settings');
 
                             _model.apiResult28j =
-                                await FastAPIWImageGenAndCreditsGroup
-                                    .updateCreditsCall
-                                    .call(
+                                await CoreServicesGroup.updateCreditsCall.call(
                               userid: currentUserUid,
                               credits: _model.outputInt,
                             );

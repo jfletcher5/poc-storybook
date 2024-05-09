@@ -203,10 +203,10 @@ class _LoginWidgetState extends State<LoginWidget>
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 8.0, 0.0),
+                              8.0, 36.0, 8.0, 0.0),
                           child: Container(
                             width: double.infinity,
-                            height: 650.0,
+                            height: MediaQuery.sizeOf(context).height,
                             constraints: const BoxConstraints(
                               maxWidth: 602.0,
                             ),
