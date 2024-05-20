@@ -15,3 +15,6 @@ export '/storybook/add_character/add_character_widget.dart'
     show AddCharacterWidget;
 export '/storybook/view_storybook/view_storybook_widget.dart'
     show ViewStorybookWidget;
+export '/tourguide/select_guide/select_guide_widget.dart'
+    show SelectGuideWidget;
+export '/tourguide/on_tour/on_tour_widget.dart' show OnTourWidget;

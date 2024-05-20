@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 
 import 'api_manager.dart';
 
@@ -9,7 +10,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start Core Services Group Code
 
 class CoreServicesGroup {
-  static String baseUrl = 'https://poised-legend-421313.ue.r.appspot.com';
+  static String getBaseUrl() => 'https://poised-legend-421313.ue.r.appspot.com';
   static Map<String, String> headers = {
     'accept': 'application/json',
   };
@@ -28,6 +29,8 @@ class GenerateCall {
     String? size = '1024x1024',
     String? quality = 'standard',
   }) async {
+    final baseUrl = CoreServicesGroup.getBaseUrl();
+
     final ffApiRequestBody = '''
 {
   "prompt": "$prompt",
@@ -37,7 +40,7 @@ class GenerateCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'generate',
-      apiUrl: '${CoreServicesGroup.baseUrl}/image_services/generate_image/',
+      apiUrl: '$baseUrl/image_services/generate_image/',
       callType: ApiCallType.POST,
       headers: {
         'accept': 'application/json',
@@ -56,9 +59,11 @@ class GenerateCall {
 
 class GenerateTextFromImageGenerateTextFromImagePostCall {
   Future<ApiCallResponse> call() async {
+    final baseUrl = CoreServicesGroup.getBaseUrl();
+
     return ApiManager.instance.makeApiCall(
       callName: 'generate_text_from_image_generate_text_from_image__post',
-      apiUrl: '${CoreServicesGroup.baseUrl}/generate_text_from_image/',
+      apiUrl: '$baseUrl/generate_text_from_image/',
       callType: ApiCallType.POST,
       headers: {
         'accept': 'application/json',
@@ -78,9 +83,11 @@ class GetCreditsCall {
   Future<ApiCallResponse> call({
     String? userid = '',
   }) async {
+    final baseUrl = CoreServicesGroup.getBaseUrl();
+
     return ApiManager.instance.makeApiCall(
       callName: 'Get Credits',
-      apiUrl: '${CoreServicesGroup.baseUrl}/user_services/credits_remaining/',
+      apiUrl: '$baseUrl/user_services/credits_remaining/',
       callType: ApiCallType.GET,
       headers: {
         'accept': 'application/json',
@@ -102,12 +109,14 @@ class UpdateCreditsCall {
     String? userid = '3lb50M0hNGSQDpRzSMOx4ygwDes1',
     int? credits = 103,
   }) async {
+    final baseUrl = CoreServicesGroup.getBaseUrl();
+
     final ffApiRequestBody = '''
 {"userid": "$userid",
 "credits": $credits}''';
     return ApiManager.instance.makeApiCall(
       callName: 'Update Credits',
-      apiUrl: '${CoreServicesGroup.baseUrl}/user_services/credits_update/',
+      apiUrl: '$baseUrl/user_services/credits_update/',
       callType: ApiCallType.POST,
       headers: {
         'accept': 'application/json',
@@ -147,6 +156,9 @@ String _serializeList(List? list) {
   try {
     return json.encode(list);
   } catch (_) {
+    if (kDebugMode) {
+      print("List serialization failed. Returning empty list.");
+    }
     return '[]';
   }
 }
@@ -156,6 +168,9 @@ String _serializeJson(dynamic jsonVar, [bool isList = false]) {
   try {
     return json.encode(jsonVar);
   } catch (_) {
+    if (kDebugMode) {
+      print("Json serialization failed. Returning empty json.");
+    }
     return isList ? '[]' : '{}';
   }
 }

@@ -153,6 +153,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'viewStorybook',
           path: '/viewStorybook',
           builder: (context, params) => const ViewStorybookWidget(),
+        ),
+        FFRoute(
+          name: 'SelectGuide',
+          path: '/selectGuide',
+          builder: (context, params) => const SelectGuideWidget(),
+        ),
+        FFRoute(
+          name: 'OnTour',
+          path: '/onTour',
+          builder: (context, params) => const OnTourWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

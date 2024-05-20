@@ -81,10 +81,10 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
               Align(
                 alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 36.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 56.0),
                   child: Container(
                     constraints: const BoxConstraints(
-                      maxHeight: 120.0,
+                      maxHeight: 180.0,
                     ),
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -194,6 +194,66 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                                         logFirebaseEvent('Button_navigate_to');
 
                                         context.pushNamed('StorybookHome');
+                                      },
+                                      text: 'Start',
+                                      options: FFButtonOptions(
+                                        height: 40.0,
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            24.0, 0.0, 24.0, 0.0),
+                                        iconPadding:
+                                            const EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Plus Jakarta Sans',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        elevation: 3.0,
+                                        borderSide: const BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Tour Guide',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ),
+                                Flexible(
+                                  child: Align(
+                                    alignment: const AlignmentDirectional(1.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        logFirebaseEvent(
+                                            'ACTIVITY_SELECTION_PAGE_START_BTN_ON_TAP');
+                                        logFirebaseEvent('Button_navigate_to');
+
+                                        context.pushNamed('SelectGuide');
                                       },
                                       text: 'Start',
                                       options: FFButtonOptions(
