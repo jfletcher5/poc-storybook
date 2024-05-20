@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 
+import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
@@ -33,14 +35,14 @@ class GenerateCall {
 
     final ffApiRequestBody = '''
 {
-  "prompt": "$prompt",
-  "model":"$model",
-  "size": "$size",
-  "quality": "$quality"
+  "prompt": "${prompt}",
+  "model":"${model}",
+  "size": "${size}",
+  "quality": "${quality}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'generate',
-      apiUrl: '$baseUrl/image_services/generate_image/',
+      apiUrl: '${baseUrl}/image_services/generate_image/',
       callType: ApiCallType.POST,
       headers: {
         'accept': 'application/json',
@@ -63,7 +65,7 @@ class GenerateTextFromImageGenerateTextFromImagePostCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'generate_text_from_image_generate_text_from_image__post',
-      apiUrl: '$baseUrl/generate_text_from_image/',
+      apiUrl: '${baseUrl}/generate_text_from_image/',
       callType: ApiCallType.POST,
       headers: {
         'accept': 'application/json',
@@ -87,7 +89,7 @@ class GetCreditsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'Get Credits',
-      apiUrl: '$baseUrl/user_services/credits_remaining/',
+      apiUrl: '${baseUrl}/user_services/credits_remaining/',
       callType: ApiCallType.GET,
       headers: {
         'accept': 'application/json',
@@ -112,11 +114,11 @@ class UpdateCreditsCall {
     final baseUrl = CoreServicesGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
-{"userid": "$userid",
-"credits": $credits}''';
+{"userid": "${userid}",
+"credits": ${credits}}''';
     return ApiManager.instance.makeApiCall(
       callName: 'Update Credits',
-      apiUrl: '$baseUrl/user_services/credits_update/',
+      apiUrl: '${baseUrl}/user_services/credits_update/',
       callType: ApiCallType.POST,
       headers: {
         'accept': 'application/json',

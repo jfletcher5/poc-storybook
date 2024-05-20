@@ -6,6 +6,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'settings_model.dart';
 export 'settings_model.dart';
 
@@ -13,7 +15,7 @@ class SettingsWidget extends StatefulWidget {
   const SettingsWidget({
     super.key,
     int? creditRequest,
-  }) : creditRequest = creditRequest ?? 0;
+  }) : this.creditRequest = creditRequest ?? 0;
 
   final int creditRequest;
 
@@ -98,21 +100,21 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           FlutterFlowTheme.of(context).primary,
                           FlutterFlowTheme.of(context).secondary
                         ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(0.0, -1.0),
-                        end: const AlignmentDirectional(0, 1.0),
+                        stops: [0.0, 1.0],
+                        begin: AlignmentDirectional(0.0, -1.0),
+                        end: AlignmentDirectional(0, 1.0),
                       ),
                     ),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(8.0, 48.0, 8.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(8.0, 48.0, 8.0, 0.0),
                     child: Container(
                       width: double.infinity,
                       height: 400.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).info,
-                        boxShadow: const [
+                        boxShadow: [
                           BoxShadow(
                             blurRadius: 4.0,
                             color: Color(0x33000000),
@@ -128,7 +130,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 16.0, 8.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -138,7 +140,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     width: 68.0,
                                     height: 68.0,
                                     clipBehavior: Clip.antiAlias,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                     ),
                                     child: Image.network(
@@ -148,7 +150,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 0.0, 0.0),
                                   child: AuthUserStreamWidget(
                                     builder: (context) => Text(
@@ -167,7 +169,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 24.0, 8.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -184,12 +186,12 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                 ),
                                 Expanded(
                                   child: Align(
-                                    alignment: const AlignmentDirectional(1.0, 0.0),
+                                    alignment: AlignmentDirectional(1.0, 0.0),
                                     child: Text(
                                       valueOrDefault<String>(
                                         settingsLMCreditsRecord
                                             ?.totalCreditsUsed
-                                            .toString(),
+                                            ?.toString(),
                                         '0',
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -206,7 +208,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 8.0, 8.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -223,12 +225,12 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                 ),
                                 Expanded(
                                   child: Align(
-                                    alignment: const AlignmentDirectional(1.0, 0.0),
+                                    alignment: AlignmentDirectional(1.0, 0.0),
                                     child: Text(
                                       valueOrDefault<String>(
                                         settingsLMCreditsRecord
                                             ?.totalCreditsPurchased
-                                            .toString(),
+                                            ?.toString(),
                                         '0',
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -249,17 +251,17 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(8.0, 24.0, 8.0, 24.0),
+                          EdgeInsetsDirectional.fromSTEB(8.0, 24.0, 8.0, 24.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Expanded(
                             flex: 1,
                             child: Padding(
-                              padding: const EdgeInsets.all(4.0),
+                              padding: EdgeInsets.all(4.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   logFirebaseEvent(
@@ -281,7 +283,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: const RequestCreditsWidget(),
+                                          child: RequestCreditsWidget(),
                                         ),
                                       );
                                     },
@@ -290,9 +292,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                 text: 'Update Total Credits',
                                 options: FFButtonOptions(
                                   height: 80.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -316,7 +318,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           Expanded(
                             flex: 1,
                             child: Padding(
-                              padding: const EdgeInsets.all(4.0),
+                              padding: EdgeInsets.all(4.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   logFirebaseEvent(
@@ -331,9 +333,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                 text: 'Logout',
                                 options: FFButtonOptions(
                                   height: 80.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).accent2,
                                   textStyle: FlutterFlowTheme.of(context)

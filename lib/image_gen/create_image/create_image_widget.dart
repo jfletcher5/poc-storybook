@@ -6,8 +6,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_image_model.dart';
 export 'create_image_model.dart';
@@ -19,10 +22,10 @@ class CreateImageWidget extends StatefulWidget {
     String? prompt,
     String? quality,
     String? size,
-  })  : model = model ?? 'dall-e-2',
-        prompt = prompt ?? 'nothing entered',
-        quality = quality ?? 'standard',
-        size = size ?? '1024x1024';
+  })  : this.model = model ?? 'dall-e-2',
+        this.prompt = prompt ?? 'nothing entered',
+        this.quality = quality ?? 'standard',
+        this.size = size ?? '1024x1024';
 
   final String model;
   final String prompt;
@@ -74,7 +77,7 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
                 child: Text(
                   'Input a Prompt',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -84,7 +87,7 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 20.0, 5.0, 5.0),
+                padding: EdgeInsetsDirectional.fromSTEB(5.0, 20.0, 5.0, 5.0),
                 child: Card(
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -93,13 +96,13 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                     child: TextFormField(
                       controller: _model.textController,
                       focusNode: _model.textFieldFocusNode,
                       onChanged: (_) => EasyDebounce.debounce(
                         '_model.textController',
-                        const Duration(milliseconds: 2000),
+                        Duration(milliseconds: 2000),
                         () async {
                           logFirebaseEvent(
                               'CREATE_IMAGE_TextField_c2h07u2a_ON_TEXTF');
@@ -165,7 +168,7 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                                   });
                                   setState(() {});
                                 },
-                                child: const Icon(
+                                child: Icon(
                                   Icons.clear,
                                   size: 20.0,
                                 ),
@@ -184,13 +187,13 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: EdgeInsets.all(15.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(5.0, 20.0, 5.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(5.0, 20.0, 5.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -198,7 +201,7 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                             flex: 1,
                             child: Container(
                               width: 100.0,
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Text(
                                 'Model:',
                                 style: FlutterFlowTheme.of(context)
@@ -241,7 +244,7 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                                     fontFamily: 'Plus Jakarta Sans',
                                     letterSpacing: 0.0,
                                   ),
-                              textPadding: const EdgeInsetsDirectional.fromSTEB(
+                              textPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 20.0, 0.0),
                               buttonPosition: RadioButtonPosition.left,
                               direction: Axis.vertical,
@@ -259,14 +262,14 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(5.0, 20.0, 5.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(5.0, 20.0, 5.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Expanded(
                             flex: 1,
                             child: Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Text(
                                 'Quality:',
                                 style: FlutterFlowTheme.of(context)
@@ -325,14 +328,14 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(5.0, 20.0, 5.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(5.0, 20.0, 5.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Expanded(
                             flex: 1,
                             child: Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Text(
                                 'Resolution:',
                                 style: FlutterFlowTheme.of(context)
@@ -447,10 +450,10 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                       text: 'Generate Image',
                       options: FFButtonOptions(
                         height: 40.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
@@ -459,7 +462,7 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                                   letterSpacing: 0.0,
                                 ),
                         elevation: 3.0,
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),
