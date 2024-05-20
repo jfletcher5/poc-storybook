@@ -199,7 +199,7 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                     ),
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 0.0, 8.0, 8.0),
+                                          8.0, 8.0, 8.0, 8.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         crossAxisAlignment:
@@ -212,12 +212,21 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                               child: Padding(
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        0.0, 0.0, 8.0, 8.0),
+                                                        0.0, 0.0, 0.0, 8.0),
                                                 child: FFButtonWidget(
-                                                  onPressed: () {
-                                                    print('Button pressed ...');
-                                                  },
-                                                  text: 'Send Prompt',
+                                                  onPressed: (_model.textController
+                                                                  .text !=
+                                                              '')
+                                                      ? null
+                                                      : () {
+                                                          print(
+                                                              'Button pressed ...');
+                                                        },
+                                                  text: 'Converse',
+                                                  icon: const Icon(
+                                                    Icons.mic,
+                                                    size: 20.0,
+                                                  ),
                                                   options: FFButtonOptions(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
@@ -234,7 +243,7 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primary,
+                                                        .salmon,
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .titleSmall
@@ -264,16 +273,12 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                               child: Padding(
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        0.0, 0.0, 0.0, 8.0),
+                                                        0.0, 0.0, 8.0, 8.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () {
                                                     print('Button pressed ...');
                                                   },
-                                                  text: 'Converse',
-                                                  icon: const Icon(
-                                                    Icons.mic,
-                                                    size: 20.0,
-                                                  ),
+                                                  text: 'Send Prompt',
                                                   options: FFButtonOptions(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
@@ -288,9 +293,7 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .salmon,
+                                                    color: const Color(0xFF23CFC2),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .titleSmall
