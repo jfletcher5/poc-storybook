@@ -4,9 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'add_character_model.dart';
 export 'add_character_model.dart';
 
@@ -66,7 +63,7 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 2.0,
         ),
@@ -76,14 +73,14 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 5.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 5.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Expanded(
                       flex: 1,
                       child: Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -106,7 +103,7 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
                     Expanded(
                       flex: 1,
                       child: Align(
-                        alignment: AlignmentDirectional(1.0, 0.0),
+                        alignment: const AlignmentDirectional(1.0, 0.0),
                         child: Icon(
                           Icons.save,
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -118,13 +115,13 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                       child: TextFormField(
                         controller: _model.textController1,
                         focusNode: _model.textFieldFocusNode1,
@@ -184,7 +181,7 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 15.0, 8.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(8.0, 15.0, 8.0, 0.0),
                       child: TextFormField(
                         controller: _model.textController2,
                         focusNode: _model.textFieldFocusNode2,
@@ -249,11 +246,11 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
               ),
               Flexible(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 15.0, 8.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 15.0, 8.0, 0.0),
                   child: FlutterFlowDropDown<String>(
                     controller: _model.dropDownValueController ??=
                         FormFieldController<String>(null),
-                    options: ['Main', 'Supporting'],
+                    options: const ['Main', 'Supporting'],
                     onChanged: (val) =>
                         setState(() => _model.dropDownValue = val),
                     height: 56.0,
@@ -273,7 +270,7 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
                     borderWidth: 2.0,
                     borderRadius: 8.0,
                     margin:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                     hidesUnderline: true,
                     isOverButton: true,
                     isSearchable: false,
@@ -282,7 +279,7 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.network(
@@ -294,7 +291,7 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () {
                     print('Button pressed ...');
@@ -303,9 +300,9 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
                   options: FFButtonOptions(
                     height: 40.0,
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Plus Jakarta Sans',
@@ -313,7 +310,7 @@ class _AddCharacterWidgetState extends State<AddCharacterWidget> {
                           letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),

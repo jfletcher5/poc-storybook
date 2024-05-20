@@ -9,9 +9,6 @@ import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'request_credits_model.dart';
 export 'request_credits_model.dart';
 
@@ -19,7 +16,7 @@ class RequestCreditsWidget extends StatefulWidget {
   const RequestCreditsWidget({
     super.key,
     int? creditNum,
-  }) : this.creditNum = creditNum ?? 0;
+  }) : creditNum = creditNum ?? 0;
 
   final int creditNum;
 
@@ -68,7 +65,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).accent4,
           ),
-          alignment: AlignmentDirectional(0.0, 1.0),
+          alignment: const AlignmentDirectional(0.0, 1.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.end,
@@ -77,7 +74,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       blurRadius: 7.0,
                       color: Color(0x33000000),
@@ -87,7 +84,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                       ),
                     )
                   ],
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(0.0),
                     bottomRight: Radius.circular(0.0),
                     topLeft: Radius.circular(16.0),
@@ -95,7 +92,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,7 +115,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 16.0, 0.0, 0.0),
                             child: Text(
                               'How many would you like?',
@@ -132,9 +129,9 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                           ),
                           Flexible(
                             child: Align(
-                              alignment: AlignmentDirectional(1.0, 0.0),
+                              alignment: const AlignmentDirectional(1.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 12.0, 0.0),
                                 child: FlutterFlowIconButton(
                                   borderColor:
@@ -142,7 +139,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                                   borderRadius: 8.0,
                                   borderWidth: 1.0,
                                   buttonSize: 40.0,
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.close_sharp,
                                     size: 24.0,
                                   ),
@@ -160,9 +157,9 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 0.0),
                         child: FlutterFlowChoiceChips(
-                          options: [
+                          options: const [
                             ChipData('5'),
                             ChipData('100'),
                             ChipData('1000')
@@ -215,7 +212,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 0.0),
                         child: Text(
                           'Please let us know why.',
                           style:
@@ -226,7 +223,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 16.0, 16.0, 0.0),
                         child: TextFormField(
                           controller: _model.emailAddressTextController,
@@ -277,7 +274,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                             filled: true,
                             fillColor: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                            contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 24.0, 20.0, 24.0),
                           ),
                           style:
@@ -292,7 +289,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 16.0, 16.0, 44.0),
                         child: FFButtonWidget(
                           onPressed: () async {
@@ -325,7 +322,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                                           .primaryText,
                                     ),
                                   ),
-                                  duration: Duration(milliseconds: 3200),
+                                  duration: const Duration(milliseconds: 3200),
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).secondary,
                                 ),
@@ -343,7 +340,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                                           .primaryText,
                                     ),
                                   ),
-                                  duration: Duration(milliseconds: 3200),
+                                  duration: const Duration(milliseconds: 3200),
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).secondary,
                                 ),
@@ -356,9 +353,9 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 50.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -369,7 +366,7 @@ class _RequestCreditsWidgetState extends State<RequestCreditsWidget> {
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 2.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),

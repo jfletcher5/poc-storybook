@@ -126,11 +126,11 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color error = const Color(0xFFFF5963);
   late Color info = const Color(0xFFFFFFFF);
 
-  late Color paynesGray = Color(0xFF476A6F);
-  late Color lavenderWeb = Color(0xFFD9DBF1);
-  late Color salmon = Color(0xFFE2856E);
-  late Color jasmine = Color(0xFFFBD87F);
-  late Color vanilla = Color(0xFFD4E09B);
+  late Color paynesGray = const Color(0xFF476A6F);
+  late Color lavenderWeb = const Color(0xFFD9DBF1);
+  late Color salmon = const Color(0xFFE2856E);
+  late Color jasmine = const Color(0xFFFBD87F);
+  late Color vanilla = const Color(0xFFD4E09B);
 }
 
 abstract class Typography {

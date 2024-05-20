@@ -1,11 +1,7 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'on_tour_model.dart';
 export 'on_tour_model.dart';
 
@@ -61,7 +57,7 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 2.0,
         ),
@@ -78,7 +74,7 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                     Container(
                       width: 100.0,
                       height: 100.0,
-                      constraints: BoxConstraints(
+                      constraints: const BoxConstraints(
                         minWidth: double.infinity,
                         minHeight: double.infinity,
                       ),
@@ -91,11 +87,11 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Container(
                               width: double.infinity,
                               height: MediaQuery.sizeOf(context).height * 0.8,
-                              constraints: BoxConstraints(
+                              constraints: const BoxConstraints(
                                 minWidth: double.infinity,
                               ),
                               decoration: BoxDecoration(
@@ -104,75 +100,38 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: StreamBuilder<List<UsersRecord>>(
-                                  stream: queryUsersRecord(),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50.0,
-                                          height: 50.0,
-                                          child: SpinKitFadingCube(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            size: 50.0,
+                                padding: const EdgeInsets.all(8.0),
+                                child: GridView(
+                                  padding: EdgeInsets.zero,
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 1,
+                                    crossAxisSpacing: 10.0,
+                                    mainAxisSpacing: 10.0,
+                                    childAspectRatio: 1.0,
+                                  ),
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.vertical,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(4.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            'Hello World',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      'Plus Jakarta Sans',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
-                                        ),
-                                      );
-                                    }
-                                    List<UsersRecord> gridViewUsersRecordList =
-                                        snapshot.data!;
-                                    return GridView.builder(
-                                      padding: EdgeInsets.zero,
-                                      gridDelegate:
-                                          SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 1,
-                                        crossAxisSpacing: 10.0,
-                                        mainAxisSpacing: 10.0,
-                                        childAspectRatio: 1.0,
+                                        ],
                                       ),
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: gridViewUsersRecordList.length,
-                                      itemBuilder: (context, gridViewIndex) {
-                                        final gridViewUsersRecord =
-                                            gridViewUsersRecordList[
-                                                gridViewIndex];
-                                        return Padding(
-                                          padding: EdgeInsets.all(4.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Text(
-                                                gridViewUsersRecord.displayName,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                              Text(
-                                                gridViewUsersRecord.email,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                  },
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -180,11 +139,11 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                         ),
                         Flexible(
                           child: Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Container(
                               width: double.infinity,
                               height: double.infinity,
-                              constraints: BoxConstraints(
+                              constraints: const BoxConstraints(
                                 minWidth: double.infinity,
                               ),
                               decoration: BoxDecoration(
@@ -193,7 +152,7 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -239,7 +198,7 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           8.0, 0.0, 8.0, 8.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -248,10 +207,10 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                         children: [
                                           Flexible(
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 1.0),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 8.0, 8.0),
                                                 child: FFButtonWidget(
@@ -266,11 +225,11 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                                         0.4,
                                                     height: 40.0,
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     iconPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
@@ -286,7 +245,7 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                                           letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -300,10 +259,10 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                           ),
                                           Flexible(
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 1.0),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 8.0),
                                                 child: FFButtonWidget(
@@ -311,7 +270,7 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                                     print('Button pressed ...');
                                                   },
                                                   text: 'Converse',
-                                                  icon: Icon(
+                                                  icon: const Icon(
                                                     Icons.mic,
                                                     size: 20.0,
                                                   ),
@@ -322,11 +281,11 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                                         0.4,
                                                     height: 40.0,
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     iconPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
@@ -342,7 +301,7 @@ class _OnTourWidgetState extends State<OnTourWidget> {
                                                           letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),

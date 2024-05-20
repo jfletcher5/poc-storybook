@@ -7,9 +7,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'create_story_model.dart';
 export 'create_story_model.dart';
 
@@ -73,13 +70,13 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 64.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 64.0, 0.0, 0.0),
                 child: Container(
                   width: double.infinity,
                   height: double.infinity,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(0.0),
                       bottomRight: Radius.circular(0.0),
                       topLeft: Radius.circular(45.0),
@@ -88,17 +85,17 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                   ),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 48.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 48.0, 0.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Column(
                               children: [
                                 Align(
-                                  alignment: Alignment(0.0, 0),
+                                  alignment: const Alignment(0.0, 0),
                                   child: FlutterFlowButtonTabBar(
                                     useToggleButtonStyle: false,
                                     labelStyle: FlutterFlowTheme.of(context)
@@ -107,7 +104,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                           fontFamily: 'Plus Jakarta Sans',
                                           letterSpacing: 0.0,
                                         ),
-                                    unselectedLabelStyle: TextStyle(),
+                                    unselectedLabelStyle: const TextStyle(),
                                     labelColor: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     unselectedLabelColor:
@@ -125,10 +122,10 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                     borderRadius: 8.0,
                                     elevation: 0.0,
                                     buttonMargin:
-                                        EdgeInsetsDirectional.fromSTEB(
+                                        const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
-                                    padding: EdgeInsets.all(4.0),
-                                    tabs: [
+                                    padding: const EdgeInsets.all(4.0),
+                                    tabs: const [
                                       Tab(
                                         text: 'Basics',
                                       ),
@@ -154,7 +151,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                     controller: _model.tabBarController,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             5.0, 20.0, 5.0, 5.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -164,11 +161,11 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           -1.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(15.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -188,14 +185,14 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                               ],
                                             ),
                                             Padding(
-                                              padding: EdgeInsets.all(25.0),
+                                              padding: const EdgeInsets.all(25.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Expanded(
                                                     child:
                                                         FlutterFlowChoiceChips(
-                                                      options: [
+                                                      options: const [
                                                         ChipData('Colorful'),
                                                         ChipData('Detailed'),
                                                         ChipData('Interactive'),
@@ -322,7 +319,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                               ],
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 30.0, 0.0, 0.0),
                                               child: Column(
@@ -351,7 +348,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                         flex: 1,
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       25.0,
                                                                       0.0,
@@ -390,7 +387,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 5.0,
                                                                 0.0, 0.0),
                                                     child: Column(
@@ -399,7 +396,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       5.0,
@@ -419,7 +416,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                   clipBehavior:
                                                                       Clip.antiAlias,
                                                                   decoration:
-                                                                      BoxDecoration(
+                                                                      const BoxDecoration(
                                                                     shape: BoxShape
                                                                         .circle,
                                                                   ),
@@ -456,7 +453,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                       FormFieldController<
                                                                               String>(
                                                                           null),
-                                                                  options: [
+                                                                  options: const [
                                                                     'Main',
                                                                     'Supporting'
                                                                   ],
@@ -496,7 +493,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                       2.0,
                                                                   borderRadius:
                                                                       8.0,
-                                                                  margin: EdgeInsetsDirectional
+                                                                  margin: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           10.0,
                                                                           0.0,
@@ -517,7 +514,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       5.0,
@@ -537,7 +534,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                   clipBehavior:
                                                                       Clip.antiAlias,
                                                                   decoration:
-                                                                      BoxDecoration(
+                                                                      const BoxDecoration(
                                                                     shape: BoxShape
                                                                         .circle,
                                                                   ),
@@ -574,7 +571,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                       FormFieldController<
                                                                               String>(
                                                                           null),
-                                                                  options: [
+                                                                  options: const [
                                                                     'Main',
                                                                     'Supporting'
                                                                   ],
@@ -614,7 +611,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                       2.0,
                                                                   borderRadius:
                                                                       8.0,
-                                                                  margin: EdgeInsetsDirectional
+                                                                  margin: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           10.0,
                                                                           0.0,
@@ -635,7 +632,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       5.0,
@@ -694,7 +691,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                 child:
                                                                     Container(
                                                                   decoration:
-                                                                      BoxDecoration(),
+                                                                      const BoxDecoration(),
                                                                 ),
                                                               ),
                                                               Expanded(
@@ -702,7 +699,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                 child:
                                                                     Container(
                                                                   decoration:
-                                                                      BoxDecoration(),
+                                                                      const BoxDecoration(),
                                                                 ),
                                                               ),
                                                             ],
@@ -723,7 +720,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                             CrossAxisAlignment.stretch,
                                         children: [
                                           Padding(
-                                            padding: EdgeInsets.all(5.0),
+                                            padding: const EdgeInsets.all(5.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -731,13 +728,13 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                   flex: 7,
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(8.0, 36.0,
                                                                 8.0, 36.0),
                                                     child: Container(
                                                       decoration: BoxDecoration(
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   15.0),
@@ -760,7 +757,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsets.all(8.0),
+                                                            const EdgeInsets.all(8.0),
                                                         child: Text(
                                                           'Please provide a brief description of the book you\'d like to create! Consider:\nTheme - Love, Friendship, Redemption, Identity\n\nSetting - Historical, Contemporary, Fantasy, Realistic\n\nResolution - Happy Ending, Tragic Ending, Ambiguous\n\nPlot - Linear, Non-linear, Twist Ending, Parallel Plots\n\nConflict - Internal, External, Man vs. Nature, Man vs. Society',
                                                           textAlign:
@@ -785,7 +782,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                           ),
                                           Flexible(
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 1.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -796,7 +793,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                     flex: 1,
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -833,7 +830,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                     flex: 3,
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   16.0,
@@ -849,14 +846,14 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                             FFButtonOptions(
                                                           height: 80.0,
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       24.0,
                                                                       0.0,
                                                                       24.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -879,7 +876,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                   ),
                                                           elevation: 3.0,
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Colors
                                                                 .transparent,
                                                             width: 1.0,
@@ -898,7 +895,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 16.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -906,11 +903,11 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                 Expanded(
                                                   child: Align(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             0.0, 1.0),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   15.0,
@@ -1007,7 +1004,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                           ),
                                                           filled: true,
                                                           contentPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       15.0,
                                                                       25.0,
@@ -1040,7 +1037,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                         ],
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 16.0, 0.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -1048,7 +1045,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                             Expanded(
                                               flex: 8,
                                               child: Padding(
-                                                padding: EdgeInsets.all(5.0),
+                                                padding: const EdgeInsets.all(5.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -1057,7 +1054,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   16.0,
@@ -1100,7 +1097,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   8.0,
@@ -1112,7 +1109,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         16.0,
@@ -1142,7 +1139,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         16.0,
@@ -1179,7 +1176,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                             ),
                                             Flexible(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 16.0),
                                                 child: Row(
@@ -1190,7 +1187,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                       flex: 1,
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 1.0),
                                                         child: FFButtonWidget(
                                                           onPressed: () {
@@ -1203,14 +1200,14 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                               FFButtonOptions(
                                                             height: 40.0,
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         24.0,
                                                                         0.0,
                                                                         24.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1233,7 +1230,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                     ),
                                                             elevation: 3.0,
                                                             borderSide:
-                                                                BorderSide(
+                                                                const BorderSide(
                                                               color: Colors
                                                                   .transparent,
                                                               width: 1.0,
@@ -1250,7 +1247,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                       flex: 1,
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 1.0),
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
@@ -1263,7 +1260,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                 'viewStorybook');
                                                           },
                                                           text: 'Save it!',
-                                                          icon: Icon(
+                                                          icon: const Icon(
                                                             Icons.save,
                                                             size: 15.0,
                                                           ),
@@ -1271,14 +1268,14 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                               FFButtonOptions(
                                                             height: 40.0,
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         24.0,
                                                                         0.0,
                                                                         24.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1301,7 +1298,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget>
                                                                     ),
                                                             elevation: 3.0,
                                                             borderSide:
-                                                                BorderSide(
+                                                                const BorderSide(
                                                               color: Colors
                                                                   .transparent,
                                                               width: 1.0,

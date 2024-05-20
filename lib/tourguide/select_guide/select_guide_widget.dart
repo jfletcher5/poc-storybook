@@ -2,12 +2,8 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'select_guide_model.dart';
 export 'select_guide_model.dart';
 
@@ -69,23 +65,23 @@ class _SelectGuideWidgetState extends State<SelectGuideWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
+            alignment: const AlignmentDirectional(0.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: FlutterFlowDropDown<String>(
                     controller: _model.dropDownValueController1 ??=
                         FormFieldController<String>(null),
-                    options: ['Option 1'],
+                    options: const ['Option 1'],
                     onChanged: (val) =>
                         setState(() => _model.dropDownValue1 = val),
                     width: 300.0,
@@ -106,7 +102,7 @@ class _SelectGuideWidgetState extends State<SelectGuideWidget> {
                     borderWidth: 2.0,
                     borderRadius: 8.0,
                     margin:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                     hidesUnderline: true,
                     isOverButton: true,
                     isSearchable: false,
@@ -114,7 +110,7 @@ class _SelectGuideWidgetState extends State<SelectGuideWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                   child: TextFormField(
                     controller: _model.textController1,
                     focusNode: _model.textFieldFocusNode1,
@@ -170,7 +166,7 @@ class _SelectGuideWidgetState extends State<SelectGuideWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 16.0, 8.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 16.0, 8.0, 0.0),
                   child: TextFormField(
                     controller: _model.textController2,
                     focusNode: _model.textFieldFocusNode2,
@@ -226,7 +222,7 @@ class _SelectGuideWidgetState extends State<SelectGuideWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                   child: TextFormField(
                     controller: _model.textController3,
                     focusNode: _model.textFieldFocusNode3,
@@ -282,11 +278,11 @@ class _SelectGuideWidgetState extends State<SelectGuideWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: FlutterFlowDropDown<String>(
                     controller: _model.dropDownValueController2 ??=
                         FormFieldController<String>(null),
-                    options: ['Option 1'],
+                    options: const ['Option 1'],
                     onChanged: (val) =>
                         setState(() => _model.dropDownValue2 = val),
                     width: 300.0,
@@ -307,7 +303,7 @@ class _SelectGuideWidgetState extends State<SelectGuideWidget> {
                     borderWidth: 2.0,
                     borderRadius: 8.0,
                     margin:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                     hidesUnderline: true,
                     isOverButton: true,
                     isSearchable: false,

@@ -2,20 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -80,24 +74,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
+          appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
+              appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
         ),
         FFRoute(
           name: 'Login',
           path: '/login',
-          builder: (context, params) => LoginWidget(),
+          builder: (context, params) => const LoginWidget(),
         ),
         FFRoute(
           name: 'ImageResults',
           path: '/imageGenResults',
           requireAuth: true,
-          builder: (context, params) => ImageResultsWidget(),
+          builder: (context, params) => const ImageResultsWidget(),
         ),
         FFRoute(
           name: 'createImage',
@@ -125,7 +119,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Settings',
           path: '/settings',
           builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'Settings')
+              ? const NavBarPage(initialPage: 'Settings')
               : SettingsWidget(
                   creditRequest: params.getParam(
                     'creditRequest',
@@ -137,38 +131,38 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ActivitySelection',
           path: '/activitySelection',
           builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'ActivitySelection')
-              : ActivitySelectionWidget(),
+              ? const NavBarPage(initialPage: 'ActivitySelection')
+              : const ActivitySelectionWidget(),
         ),
         FFRoute(
           name: 'StorybookHome',
           path: '/storybookHome',
-          builder: (context, params) => StorybookHomeWidget(),
+          builder: (context, params) => const StorybookHomeWidget(),
         ),
         FFRoute(
           name: 'createStory',
           path: '/createStory',
-          builder: (context, params) => CreateStoryWidget(),
+          builder: (context, params) => const CreateStoryWidget(),
         ),
         FFRoute(
           name: 'AddCharacter',
           path: '/addCharacter',
-          builder: (context, params) => AddCharacterWidget(),
+          builder: (context, params) => const AddCharacterWidget(),
         ),
         FFRoute(
           name: 'viewStorybook',
           path: '/viewStorybook',
-          builder: (context, params) => ViewStorybookWidget(),
+          builder: (context, params) => const ViewStorybookWidget(),
         ),
         FFRoute(
           name: 'SelectGuide',
           path: '/selectGuide',
-          builder: (context, params) => SelectGuideWidget(),
+          builder: (context, params) => const SelectGuideWidget(),
         ),
         FFRoute(
           name: 'OnTour',
           path: '/onTour',
-          builder: (context, params) => OnTourWidget(),
+          builder: (context, params) => const OnTourWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -405,7 +399,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

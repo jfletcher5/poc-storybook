@@ -2,9 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'activity_selection_model.dart';
 export 'activity_selection_model.dart';
 
@@ -58,7 +55,7 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 2.0,
         ),
@@ -82,16 +79,16 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 56.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 56.0),
                   child: Container(
-                    constraints: BoxConstraints(
+                    constraints: const BoxConstraints(
                       maxHeight: 180.0,
                     ),
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           blurRadius: 4.0,
                           color: Color(0x33000000),
@@ -105,17 +102,17 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                       shape: BoxShape.rectangle,
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Padding(
-                            padding: EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(10.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       15.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Image Generation Tool',
@@ -129,7 +126,7 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                                 ),
                                 Flexible(
                                   child: Align(
-                                    alignment: AlignmentDirectional(1.0, 0.0),
+                                    alignment: const AlignmentDirectional(1.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         logFirebaseEvent(
@@ -141,10 +138,10 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                                       text: 'Start',
                                       options: FFButtonOptions(
                                         height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             24.0, 0.0, 24.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
@@ -156,7 +153,7 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
@@ -170,12 +167,12 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(10.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       15.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Storybook Creation',
@@ -189,7 +186,7 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                                 ),
                                 Flexible(
                                   child: Align(
-                                    alignment: AlignmentDirectional(1.0, 0.0),
+                                    alignment: const AlignmentDirectional(1.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         logFirebaseEvent(
@@ -201,10 +198,10 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                                       text: 'Start',
                                       options: FFButtonOptions(
                                         height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             24.0, 0.0, 24.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
@@ -216,7 +213,7 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
@@ -230,12 +227,12 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(10.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       15.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Tour Guide',
@@ -249,7 +246,7 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                                 ),
                                 Flexible(
                                   child: Align(
-                                    alignment: AlignmentDirectional(1.0, 0.0),
+                                    alignment: const AlignmentDirectional(1.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         logFirebaseEvent(
@@ -261,10 +258,10 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                                       text: 'Start',
                                       options: FFButtonOptions(
                                         height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             24.0, 0.0, 24.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
@@ -276,7 +273,7 @@ class _ActivitySelectionWidgetState extends State<ActivitySelectionWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
