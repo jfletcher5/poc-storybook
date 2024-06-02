@@ -104,9 +104,8 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                           logFirebaseEvent(
                               'CREATE_IMAGE_TextField_c2h07u2a_ON_TEXTF');
                           logFirebaseEvent('TextField_update_app_state');
-                          setState(() {
-                            FFAppState().prompt = _model.textController.text;
-                          });
+                          FFAppState().prompt = _model.textController.text;
+                          setState(() {});
                         },
                       ),
                       autofocus: true,
@@ -159,10 +158,9 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                                       'CREATE_IMAGE_TextField_c2h07u2a_ON_TEXTF');
                                   logFirebaseEvent(
                                       'TextField_update_app_state');
-                                  setState(() {
-                                    FFAppState().prompt =
-                                        _model.textController.text;
-                                  });
+                                  FFAppState().prompt =
+                                      _model.textController.text;
+                                  setState(() {});
                                   setState(() {});
                                 },
                                 child: const Icon(
@@ -220,10 +218,9 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                                     'CREATE_IMAGE_RadioButtonModel_ON_FORM_WI');
                                 logFirebaseEvent(
                                     'RadioButtonModel_update_app_state');
-                                setState(() {
-                                  FFAppState().model =
-                                      _model.radioButtonModelValue!;
-                                });
+                                FFAppState().model =
+                                    _model.radioButtonModelValue!;
+                                setState(() {});
                               },
                               controller:
                                   _model.radioButtonModelValueController ??=
@@ -288,10 +285,9 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                                     'CREATE_IMAGE_RadioButtonQuality_ON_FORM_');
                                 logFirebaseEvent(
                                     'RadioButtonQuality_update_app_state');
-                                setState(() {
-                                  FFAppState().quality =
-                                      _model.radioButtonQualityValue!;
-                                });
+                                FFAppState().quality =
+                                    _model.radioButtonQualityValue!;
+                                setState(() {});
                               },
                               controller:
                                   _model.radioButtonQualityValueController ??=
@@ -354,10 +350,9 @@ class _CreateImageWidgetState extends State<CreateImageWidget> {
                                     'CREATE_IMAGE_RadioButtonResolution_ON_FO');
                                 logFirebaseEvent(
                                     'RadioButtonResolution_update_app_state');
-                                setState(() {
-                                  FFAppState().size =
-                                      _model.radioButtonResolutionValue!;
-                                });
+                                FFAppState().size =
+                                    _model.radioButtonResolutionValue!;
+                                setState(() {});
                               },
                               controller: _model
                                       .radioButtonResolutionValueController ??=
